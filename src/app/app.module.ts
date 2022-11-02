@@ -9,6 +9,8 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { DisplayComponent } from './display/display.component';
+import { ItemsService } from './items.service';//added the items service
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,10 @@ import { DisplayComponent } from './display/display.component';
     AppRoutingModule,
     FontAwesomeModule,
   ],
-  providers: [],
+  providers: [
+    //added the service
+    ItemsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
