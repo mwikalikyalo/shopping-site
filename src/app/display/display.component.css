@@ -1,5 +1,5 @@
 .bg-color{
-  padding: 60px 0;
+  padding: 20px;
   background-color: #dda15e;
 }
 
@@ -9,7 +9,8 @@
 }
 
 .title{
-  margin-bottom: 50px;
+  margin-bottom: 10px;
+  padding-bottom: 40px;
   position: relative;
 }
 .title::before{
@@ -32,13 +33,27 @@
   line-height: 20px;
   position: absolute;
   bottom: 10%;
-  left: 10%;
+  left: 50%;
   background-color: #283618;
   transform: translateX(-50%);
   font-size: 16px;
 }
 
 .best{
-  color:#dda15e;
+  color:#fefae0;
   font-style: italic;
+  font-weight: bolder;
+  margin: 0;
+}
+
+.seller{
+  font-size: 44px;
+  color:#fefae0;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.seller span{
+  color: #283618;
+
 }

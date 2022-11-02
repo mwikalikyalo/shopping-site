@@ -6,10 +6,14 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
+
 export class NavbarComponent implements OnInit {
   faCartShopping=faCartShopping;
+  siteName= "Shopperz";
 
-  constructor() { }
+  constructor() {
+    
+   }
 
   ngOnInit(): void {
   }

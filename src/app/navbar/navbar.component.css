@@ -1,8 +1,10 @@
-#shopperz{
-  color: #dda15e;
+#shop{
+  color: #fefae0;
+  font-weight: 800;
+  font-size: 20px;
 }
 
-.nav-link{
+li a.shopperz{
   color: #dda15e;
 }
 
@@ -18,4 +20,8 @@ button{
 button:hover{
   color: #dda15e;
   background-color: #fefae0;
+}
+
+#shopperz{
+  color: #dda15e;
 }
