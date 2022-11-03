@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsService } from '../items.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-display',
@@ -9,9 +10,13 @@ import { ItemsService } from '../items.service';
 })
 export class DisplayComponent implements OnInit {
 
-  constructor(private itemsService: ItemsService) { }
+  constructor(private http: HttpClient, private itemsService: ItemsService) { }
 
   ngOnInit(): void {
+  }
+
+  onItemFetch(products: {pName: string, desc: string, price: string}){
+    this.itemsService.fetchProduct(products);
   }
 
 }
