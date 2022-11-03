@@ -9,7 +9,7 @@ import { ItemsService } from '../items.service';
 })
 export class DisplayComponent implements OnInit {
 
-  constructor() { }
+  constructor(private itemsService: ItemsService) { }
 
   ngOnInit(): void {
   }

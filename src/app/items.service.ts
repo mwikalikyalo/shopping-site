@@ -11,10 +11,10 @@ export class ItemsService {
   createProduct(products: {pName: string, desc: string, price: string}){
     const headers= new HttpHeaders({"myHeader": "procademy"})
     this.http.post<{name: string}>(
-    'https://angularbyprocademy-default-rtdb.firebaseio.com/products.json',
-    products, {headers: headers})
-    .subscribe((res) => {
-    console.log(res);
+      'https://angularbyprocademy-default-rtdb.firebaseio.com/products.json',
+      products, {headers: headers})
+      .subscribe((res) => {
+      console.log(res);
    });
   }
 
