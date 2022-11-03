@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsService } from '../items.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Product } from '../product'
 
 @Component({
   selector: 'app-display',
@@ -9,14 +10,19 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providers:  [ ItemsService ]
 })
 export class DisplayComponent implements OnInit {
+  product = Product;
 
   constructor(private http: HttpClient, private itemsService: ItemsService) { }
 
   ngOnInit(): void {
   }
 
-  onItemFetch(products: {pName: string, desc: string, price: string}){
-    this.itemsService.fetchProduct(products);
+  onItemFetch(){
+    // this.isFetching= true;
+    this.itemsService.fetchProduct().subscribe((products:any)=>{
+    //   this.allProducts= products;
+    //   this.isFetching= false;
+    })
   }
 
 }

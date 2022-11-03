@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Product } from '../app/product';
 
 @Injectable({
   providedIn: 'root' 
@@ -20,7 +21,7 @@ export class ItemsService {
   // }
 
   fetchProduct(){
-    return this.http.get<{[key: string]: Product}> ('https://angularbyprocademy-default-rtdb.firebaseio.com/products.json')
+    return this.http.get<{[key: string]: Product}> ('https://fakestoreapi.com/products')
     .pipe(map((res) => {
     const products = [];
     for (const key in res){
