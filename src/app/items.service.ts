@@ -32,12 +32,10 @@ export class ItemsService {
     return products;
     }))
     .subscribe((products)=>{
-    console.log(products)
+      console.log(products)
     })
-
-
-
   }
+
 
 
 
