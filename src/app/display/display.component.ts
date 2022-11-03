@@ -10,7 +10,9 @@ import { Product } from '../product'
   providers:  [ ItemsService ]
 })
 export class DisplayComponent implements OnInit {
-  product = Product;
+  allProducts: any;
+  isFetching: any;
+  product: any;
 
   constructor(private http: HttpClient, private itemsService: ItemsService) { }
 
@@ -18,10 +20,10 @@ export class DisplayComponent implements OnInit {
   }
 
   onItemFetch(){
-    // this.isFetching= true;
-    this.itemsService.fetchProduct().subscribe((products:any)=>{
-    //   this.allProducts= products;
-    //   this.isFetching= false;
+    this.isFetching= true;
+    this.itemsService.fetchProduct().subscribe((products: any) =>{
+      this.allProducts= products;
+      this.isFetching= false;
     })
   }
 
