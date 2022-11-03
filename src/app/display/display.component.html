@@ -2,15 +2,15 @@
   <section class="bg-color">
     <div class="container-fluid">
       <div class="title text-center">
-        <h1 class="seller"><span>{{product.category}}</span></h1>
+        <h1 class="seller"><span>{{ allProducts?.category}}</span></h1>
       </div>
       <div class="row">
         <div class="col-md-3">
           <div class="card" style="width: 18rem;">
             <img src="../../assets/electronics2.jpg" class="card-img-top" alt="Product">
             <div class="card-body">
-              <h5 class="card-title">{{product.title}}</h5>
-              <p class="card-text">{{product.price}}</p>
+              <h5 class="card-title">{{ allProducts?.description }}</h5>
+              <p class="card-text">{{ allProducts?.price }}</p>
               <a href="#" class="btn btn-primary">Order</a>
             </div>
           </div>

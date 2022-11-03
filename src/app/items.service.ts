@@ -21,24 +21,18 @@ export class ItemsService {
   // }
 
   fetchProduct(){
-    return this.http.get<{[key: string]: Product}> ('https://fakestoreapi.com/products')
-    .pipe(map((res) => {
-    const products = [];
-    for (const key in res){
-      if(res.hasOwnProperty(key)){
-        products.push({...res[key], id: key})
-      }
-    }
-    return products;
-    }))
-    .subscribe((products)=>{
-      console.log(products)
-    })
+    return this.http.get<any> ('https://fakestoreapi.com/products')
+  //   .pipe(map((res) => {
+  //   const products = [];
+  //   for (const key in res){
+  //     if(res.hasOwnProperty(key)){
+  //       products.push({...res[key], id: key})
+  //     }
+  //   }
+  //   return products;
+  //   }))
+  //   .subscribe((products)=>{
+  //     console.log(products)
+  //   })
   }
-
-
-
-
-
-  
-}
+  }

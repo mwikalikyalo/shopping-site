@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ItemsService } from '../items.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Product } from '../product'
@@ -7,24 +7,30 @@ import { Product } from '../product'
   selector: 'app-display',
   templateUrl: './display.component.html',
   styleUrls: ['./display.component.css'],
-  providers:  [ ItemsService ]
+  providers:  [ ItemsService ],
 })
+
 export class DisplayComponent implements OnInit {
+  
+  @Input() product: Product[] = [];
+  
   allProducts: any;
-  isFetching: any;
-  product: any;
+  // isFetching: unknown;
+  
 
   constructor(private http: HttpClient, private itemsService: ItemsService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   onItemFetch(){
-    this.isFetching= true;
-    this.itemsService.fetchProduct().subscribe((products: any) =>{
-      this.allProducts= products;
-      this.isFetching= false;
-    })
-  }
+    // this.isFetching= true;
+    this.itemsService.fetchProduct().
+      subscribe((product) => {
+        console.log(this.allProducts)
+        this.allProducts= product; 
+        // this.isFetching= false;
+    });
+  };
 
 }
