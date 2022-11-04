@@ -21,6 +21,7 @@ export class DisplayComponent implements OnInit {
   constructor(private http: HttpClient, private itemsService: ItemsService) { }
 
   ngOnInit() {
+    this.onItemFetch()
   }
 
   onItemFetch(){
