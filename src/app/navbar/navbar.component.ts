@@ -8,6 +8,7 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 })
 
 export class NavbarComponent implements OnInit {
+  collapsed = true;
   faCartShopping=faCartShopping;
   siteName= "Shopperz";
 

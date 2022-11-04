@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Product } from '../app/product';
+// import { Product } from '../app/product';
 
 @Injectable({
   providedIn: 'root' 
 })
+
 export class ItemsService {
   constructor(private http: HttpClient) { }
 

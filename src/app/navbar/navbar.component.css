@@ -4,8 +4,12 @@
   font-size: 20px;
 }
 
-li a.shopperz{
+li> a.shopperz{
   color: #dda15e;
+}
+
+li> a.shopperz:hover{
+  color: #fefae0;
 }
 
 .navbar{
