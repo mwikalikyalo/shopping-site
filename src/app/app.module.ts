@@ -12,6 +12,7 @@ import { SignupComponent } from './signup/signup.component';
 import { DisplayComponent } from './display/display.component';
 import { ItemsService } from './items.service';//added the items service
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     LoginComponent,
     SignupComponent,
-    DisplayComponent
+    DisplayComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

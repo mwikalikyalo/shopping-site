@@ -4,9 +4,11 @@ import { DisplayComponent } from './display/display.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { HomeComponent } from './home/home.component'
 
 const routes: Routes = [
-  { path: '', component: DisplayComponent },
+  { path: '', component: HomeComponent },
+  { path: 'display', component: DisplayComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
   { path: 'footer', component: FooterComponent },
