@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 // import { Product } from '../app/product';
 
 @Injectable({
@@ -22,16 +21,6 @@ export class ItemsService {
   // }
 
   fetchProduct(){
-    return this.http.get<any> ('https://fakestoreapi.com/products')
-    .pipe(map((res) => {
-    const products = [];
-    for (const key in res){
-      if(res.hasOwnProperty(key)){
-        products.push({...res[key], id: key})
-      }
-    }
-    return products;
-    }))
-  
+    return this.http.get<any>('https://fakestoreapi.com/products');
   }
   }
