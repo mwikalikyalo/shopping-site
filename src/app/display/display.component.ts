@@ -11,7 +11,6 @@ import { Product } from '../product'
 export class DisplayComponent implements OnInit {  
   allProducts: any;
   
-
   constructor(private itemsService: ItemsService) { }
 
   ngOnInit() {
@@ -19,10 +18,8 @@ export class DisplayComponent implements OnInit {
   }
 
   onItemFetch(){
-  
     this.itemsService.fetchProduct().subscribe((product) => {
-        this.allProducts= product; 
-       
+        this.allProducts= product;    
     });
   };
 

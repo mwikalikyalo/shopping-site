@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-// import { Product } from '../app/product';
 
 @Injectable({
   providedIn: 'root' 
@@ -21,6 +20,6 @@ export class ItemsService {
   // }
 
   fetchProduct(){
-    return this.http.get<any>('https://fakestoreapi.com/products');
+    return this.http.get('https://fakestoreapi.com/products');
   }
   }
