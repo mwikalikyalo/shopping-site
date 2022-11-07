@@ -13,6 +13,7 @@ import { DisplayComponent } from './display/display.component';
 import { ItemsService } from './items.service';//added the items service
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { GuardService } from './guard.service';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { HomeComponent } from './home/home.component';
   ],
   providers: [
     //added the service
-    ItemsService
+    ItemsService,
+    GuardService
   ],
   bootstrap: [AppComponent]
 })

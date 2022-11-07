@@ -5,10 +5,11 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component'
+import { GuardService } from './guard.service';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: '', component: DisplayComponent },
+  { path: '', component: HomeComponent },
+  { path: 'display', component: DisplayComponent, canActivate: [GuardService]  },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
   { path: 'footer', component: FooterComponent },

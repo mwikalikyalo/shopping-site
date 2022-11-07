@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class GuardService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-      return true;
+      return false;
   }
   constructor() { }
 }
