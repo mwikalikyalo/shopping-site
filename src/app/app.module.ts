@@ -14,6 +14,7 @@ import { ItemsService } from './items.service';//added the items service
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { GuardService } from './guard.service';
+import { AuthService } from './auth.service';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { GuardService } from './guard.service';
   providers: [
     //added the service
     ItemsService,
-    GuardService
+    GuardService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
