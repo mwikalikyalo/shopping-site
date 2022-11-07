@@ -8,20 +8,23 @@
     <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active list" aria-current="page" routerLink="/login" >Login</a>
-        <a class="nav-link active list" aria-current="page" routerLink="/signup" >Sign-up</a>
+        <a class="nav-link active list" aria-current="page" routerLink="/login" >Log out</a>
         <a class="nav-link active list" aria-current="page" routerLink="/display" >Products</a>    
       </div>
     </div>
   </div>
 </nav>
 <div class="container-fluid home">
-  <div class="row d-flex justify-content-center">
-    <div class="col text-center">
-      <h3 id="welcome">Welcome to Shopperz!</h3>
-      <p id="start">Login to start shopping</p>
-      <div class="btn-group">
-        <a href="#" class="btn btn-lg active" aria-current="page">Login</a>
+  <div class="bg-image"></div>
+    <div class="row d-flex justify-content-center">
+      <div class="col text-center bg-text">
+        <h3 id="welcome">Welcome to Shopperz!</h3>
+        <hr>
+        <p id="start">Start shopping with us by logging in to <br>
+          check out the available products.<br> Happy Shopping !!!</p>
+          <div class="d-grid gap-2 col-6 mx-auto">
+            <a href="#" class="btn btn-lg active" aria-current="page" routerLink='/display' >View Products </a>
+          </div>
       </div>
-    </div>
-  </div>
+    </div>  
 </div>
