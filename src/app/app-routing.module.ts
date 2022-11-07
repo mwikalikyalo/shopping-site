@@ -9,7 +9,7 @@ import { GuardService } from './guard.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'display', component: DisplayComponent, canActivate: [GuardService]  },
+  { path: 'display', component: DisplayComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
   { path: 'footer', component: FooterComponent },
@@ -20,3 +20,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+// canActivate: [GuardService]- display component
