@@ -6,11 +6,11 @@
       </div>
       <div class="row whole row-cols-1 row-cols-md-3 g-4" >
         <div class="col-md-4 prod" *ngFor="let product of allProducts">
-          <div class="card" (click)= "enlarge()">
+          <div class="card" (click)="collapse()">
             <img src="../../assets/fashion2.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h6 class="card-title">{{ product.title }}</h6>
-              <p class="card-text" (click)="collapse()"> {{ product.description }} </p>
+              <p class="card-text" *ngIf="show"> {{ product.description }} </p>
               <p class="card-text"> USD. {{ product.price }}</p>
               <p class="card-text"> {{ product.category }} </p>
               <a href="#" class="btn"> Order </a>

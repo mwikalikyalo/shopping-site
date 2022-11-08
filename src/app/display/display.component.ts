@@ -10,6 +10,7 @@ import { ItemsService } from '../items.service';
 
 export class DisplayComponent implements OnInit {  
   allProducts: any;
+  public show: boolean = false;
   
   constructor(private itemsService: ItemsService) { }
 
@@ -23,13 +24,10 @@ export class DisplayComponent implements OnInit {
     });
   };
 
-  enlarge(){
-    
-
-  }
-
   collapse(){
-
+    this.show = !this.show;
   }
-
+   
 }
+
+
