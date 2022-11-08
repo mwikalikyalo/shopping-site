@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsService } from '../items.service';
-// import { Product } from '../product'
 
 @Component({
   selector: 'app-display',
@@ -10,7 +9,8 @@ import { ItemsService } from '../items.service';
 
 export class DisplayComponent implements OnInit {  
   allProducts: any;
-  public show: boolean = false;
+  // show: boolean = false;
+  // isOpen = true;
   
   constructor(private itemsService: ItemsService) { }
 
@@ -24,9 +24,10 @@ export class DisplayComponent implements OnInit {
     });
   };
 
-  collapse(){
-    this.show = !this.show;
-  }
+  // collapse(){
+  //   this.show = !this.show;
+  //   this.isOpen = !this.isOpen;
+  // }
    
 }
 
