@@ -39,13 +39,6 @@
   font-size: 16px;
 }
 
-.best{
-  color:#fefae0;
-  font-style: italic;
-  font-weight: bolder;
-  margin: 0;
-}
-
 .seller{
   font-size: 44px;
   color:#fefae0;
@@ -55,5 +48,19 @@
 
 .seller span{
   color: #283618;
+}
 
+.whole{
+  padding: 10px;
+}
+
+.btn{
+  background-color: #283618;
+  color: #dda15e;
+}
+
+.card-text{
+  text-transform: capitalize;
+  font-weight: 600;
+  margin: 9px;
 }

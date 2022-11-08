@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { Router } from '@angular/router';
+import { faCartShopping, faLongArrowAltUp } from '@fortawesome/free-solid-svg-icons'
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,11 +14,10 @@ export class NavbarComponent implements OnInit {
   faCartShopping=faCartShopping;
   siteName= "Shopperz";
 
-  constructor() {
+  constructor(private authservice: AuthService, private router: Router) {
     
    }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit() {
+}
 }

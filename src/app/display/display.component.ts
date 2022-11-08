@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ItemsService } from '../items.service';
-import { Product } from '../product'
+// import { Product } from '../product'
 
 @Component({
   selector: 'app-display',
@@ -18,8 +18,8 @@ export class DisplayComponent implements OnInit {
   }
 
   onItemFetch(){
-    this.itemsService.fetchProduct().subscribe((product) => {
-        this.allProducts= product;    
+    this.itemsService.fetchProduct().subscribe((products:any) => {
+        this.allProducts= products;    
     });
   };
 

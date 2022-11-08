@@ -3,6 +3,7 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faSquareTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,9 +16,15 @@ export class LoginComponent implements OnInit {
   faSquareTwitter = faSquareTwitter;
   faCartShopping = faCartShopping;
 
-  constructor() { }
+  constructor(private authservice: AuthService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+
+  // login(){
+  //     this.authservice.login()
+  // };
   }
 
 }
+
+

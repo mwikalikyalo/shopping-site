@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from '../auth.service';
+
 
 @Component({
   selector: 'app-home',
@@ -9,9 +12,14 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 export class HomeComponent implements OnInit {
   faCartShopping = faCartShopping;
 
-  constructor() { }
+  constructor(private authService: AuthService, private httpClient: HttpClient) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    // login(){
+    //   this.authService.login()
+    // }
   }
 
 }
+
+
