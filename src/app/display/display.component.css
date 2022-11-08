@@ -9,8 +9,8 @@
 }
 
 .title{
-  margin-bottom: 10px;
-  padding-bottom: 40px;
+  margin-bottom: 5px;
+  padding-bottom: 30px;
   position: relative;
 }
 .title::before{
@@ -40,7 +40,7 @@
 }
 
 .seller{
-  font-size: 44px;
+  font-size: 32px;
   color:#fefae0;
   font-weight: 800;
   text-transform: uppercase;
@@ -50,8 +50,16 @@
   color: #283618;
 }
 
+.card-title{
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .whole{
   padding: 10px;
+  display: flex;
 }
 
 .btn{
@@ -62,5 +70,11 @@
 .card-text{
   text-transform: capitalize;
   font-weight: 600;
-  margin: 9px;
+  margin: 7px;
+  color: #283618;
+}
+
+.card{
+  width: 320px;
+  height: 370px;
 }
