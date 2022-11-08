@@ -23,4 +23,12 @@ export class DisplayComponent implements OnInit {
     });
   };
 
+  enlarge(){
+
+  }
+
+  collapse(){
+    
+  }
+
 }

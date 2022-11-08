@@ -14,8 +14,7 @@ import { ItemsService } from './items.service';//added the items service
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { GuardService } from './guard.service';
-import { AuthService } from './auth.service';
-import { EnlargedComponent } from './enlarged/enlarged.component';
+import { AuthService } from './auth.service'
 
 
 @NgModule({
@@ -27,7 +26,6 @@ import { EnlargedComponent } from './enlarged/enlarged.component';
     SignupComponent,
     DisplayComponent,
     HomeComponent,
-    EnlargedComponent
   ],
   imports: [
     BrowserModule,
