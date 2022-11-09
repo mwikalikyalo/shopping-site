@@ -9,13 +9,13 @@ import { ItemsService } from '../items.service';
 
 export class DisplayComponent implements OnInit {  
   allProducts: any;
-  // show: boolean = false;
-  // isOpen = true;
+
+  searchText: string= '';
   
   constructor(private itemsService: ItemsService) { }
 
   ngOnInit() {
-    this.onItemFetch()
+    this.onItemFetch();
   }
 
   onItemFetch(){
@@ -24,10 +24,11 @@ export class DisplayComponent implements OnInit {
     });
   };
 
-  // collapse(){
-  //   this.show = !this.show;
-  //   this.isOpen = !this.isOpen;
-  // }
+  onSearchTextEntered(searchValue: string){
+      this.searchText= searchValue;
+      console.log(this.searchText);
+  }
+  
    
 }
 

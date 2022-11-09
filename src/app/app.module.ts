@@ -16,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { GuardService } from './guard.service';
 import { AuthService } from './auth.service';
-import { EnlargedComponent } from './enlarged/enlarged.component'
+import { EnlargedComponent } from './enlarged/enlarged.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { EnlargedComponent } from './enlarged/enlarged.component'
     BrowserAnimationsModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [
     //added the service

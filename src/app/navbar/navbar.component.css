@@ -16,12 +16,12 @@ li> a.shopperz:hover{
   background-color:#283618;
 }
 
-button{
+.btn{
   color:#283618;
   background-color: #fefae0;
 }
 
-button:hover{
+.btn:hover{
   color: #dda15e;
   background-color: #fefae0;
 }

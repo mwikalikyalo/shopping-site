@@ -11,7 +11,7 @@ import { EnlargedComponent } from './enlarged/enlarged.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'display', component: DisplayComponent },
-  { path: 'enlarged/:id', component: EnlargedComponent},
+  { path: 'enlarged/:category', component: EnlargedComponent},
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
   { path: 'footer', component: FooterComponent },

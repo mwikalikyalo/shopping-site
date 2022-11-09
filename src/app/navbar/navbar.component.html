@@ -29,8 +29,9 @@
       </ul>
       
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn" type="submit">Search</button>
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" 
+        [(ngModel)]="category" [ngModelOptions]="{standalone: true}" (input)="onSearchCategory()">
+        <a class="btn btn-lg active" aria-current="page" routerLink='/display' type="submit"> Search </a>
       </form>
     </div>
   </div>

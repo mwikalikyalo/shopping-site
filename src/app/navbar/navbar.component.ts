@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { faCartShopping, faLongArrowAltUp } from '@fortawesome/free-solid-svg-icons'
-import { AuthService } from '../auth.service';
+// import { AuthService } from '../auth.service';
 import { ItemsService } from '../items.service';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-navbar',
@@ -11,15 +12,23 @@ import { ItemsService } from '../items.service';
 })
 
 export class NavbarComponent implements OnInit {
+  category: string = '';
+
+  @Output()
+  searchCategory: EventEmitter<string> = new EventEmitter<string>()
+
   collapsed = true;
   faCartShopping=faCartShopping;
   siteName= "Shopperz";
 
-  constructor(private authservice: AuthService, private router: Router, private itemservice: ItemsService) {
-    
-   }
+  constructor(private itemService: ItemsService) { }
 
   ngOnInit() {
+  }
 
-}
+  onSearchCategory(){
+    this.searchCategory.emit(this.category)
+  }
+
+
 }

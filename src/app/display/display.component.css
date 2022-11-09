@@ -78,11 +78,8 @@
 .card{
   width: 320px;
   height: 370px;
-  transition: width height 1s;
 }
 
-.card:hover{
-  width: 400px;
-  height: 600px;
-  margin: 14px;
-}
+/* .card:hover{
+  
+} */
