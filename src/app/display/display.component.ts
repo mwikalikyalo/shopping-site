@@ -10,7 +10,9 @@ import { Product } from '../product'
 
 export class DisplayComponent implements OnInit {  
   allProducts: any;
-  product: Product | undefined;
+
+  product: Product[] = [];
+  
   searchText: string= '';
   
   constructor(private itemsService: ItemsService) { }
@@ -25,6 +27,7 @@ export class DisplayComponent implements OnInit {
     });
   };
 
+  //filter by category
   onSearchTextEntered(searchValue: string){
       this.searchText= searchValue;
       console.log(this.searchText);

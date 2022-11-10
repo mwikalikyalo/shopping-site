@@ -76,13 +76,7 @@
 }
 
 .card{
-  width: 320px;
-  height: 370px;
-  transition: width height 1s;
+  width: 400px;
+  height: 700px;
 }
 
-.card:hover{
-  width: 400px;
-  height: 600px;
-  margin: 14px;
-}

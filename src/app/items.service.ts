@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { throwError, Observable, map } from 'rxjs';
+import { throwError, Observable, map, of } from 'rxjs';
 import { Product } from './product';
 import { catchError } from 'rxjs/operators';
 
@@ -27,7 +27,18 @@ export class ItemsService {
   getById(id: number): Observable<Product | undefined> {
     return this.fetchProduct()
       .pipe(
-        map((products: Product[]) => products.find(p => p.productId === id))
+        map((products: Product[]) => {
+          console.log(id)
+          products.find(p => {
+            if(p.id== id){
+              console.log(p)
+              return of(p)
+            } else{
+              return undefined
+            }
+          })
+          return undefined
+        })
       );
   }
 

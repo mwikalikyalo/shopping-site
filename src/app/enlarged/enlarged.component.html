@@ -1,18 +1,18 @@
 <app-navbar></app-navbar>
   <section class="bg-color" >
-    <div class="container-fluid">
+    <div class="container-fluid" *ngIf ="product !== undefined">
       <!-- <div class="title text-center">
         <h1 class="seller"><span>ALL</span> PRODUCTS.</h1>
       </div>  < *ngFor="let product of allProducts"> -->
       <div class="row whole row-cols-1 row-cols-md-3 g-4" >
-        <div class="col-md-4 prod" *ngIf ="product">      
+        <div class="col-md-4 prod" >      
           <div class="card">
             <img src="../../assets/fashion2.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h6 class="card-title">{{ product.title }}</h6>
-              <p class="card-text"> USD. {{ product.price }}</p>
-              <p class="card-text"> {{ product.category }} </p>
-              <p class="card-text"> {{ product.description }} </p>
+              <h6 class="card-title">{{ product?.title }}</h6>
+              <p class="card-text"> USD. {{ product?.price }}</p>
+              <p class="card-text"> {{ product?.category }} </p>
+              <p class="card-text"> {{ product?.description }} </p>
               <a href="#" class="btn"> Order </a>
             </div>
           </div>
