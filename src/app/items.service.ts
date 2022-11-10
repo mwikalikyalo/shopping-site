@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { throwError, Observable } from 'rxjs';
+import { throwError, Observable, map } from 'rxjs';
 import { Product } from './product';
 import { catchError } from 'rxjs/operators';
 
@@ -24,9 +24,17 @@ export class ItemsService {
   };
 
   //view enlarged item by id
-  getById(id:any): Observable<Product[]>{
-    return this.http.get<Product[]>(`${this.baseUrl}/id=?${id}`);
+  getById(id: number): Observable<Product | undefined> {
+    return this.fetchProduct()
+      .pipe(
+        map((products: Product[]) => products.find(p => p.productId === id))
+      );
   }
+
+   //view enlarged item by id
+  //  getById(id:any): Observable<Product[]>{
+  //   return this.http.get<Product[]>(`${this.baseUrl}/id=?${id}`);
+  // }
 
   //find item by category
   searching(category:any): Observable<Product[]>{

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsService } from '../items.service';
+import { Product } from '../product'
 
 @Component({
   selector: 'app-display',
@@ -9,7 +10,7 @@ import { ItemsService } from '../items.service';
 
 export class DisplayComponent implements OnInit {  
   allProducts: any;
-
+  product: Product | undefined;
   searchText: string= '';
   
   constructor(private itemsService: ItemsService) { }

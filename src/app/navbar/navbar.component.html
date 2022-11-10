@@ -10,27 +10,27 @@
         <li class="nav-item">
           <a class="nav-link active" id="shopperz" aria-current="page" href="#">Home</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle shopperz" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Log out
+        <li class="nav-item">
+          <a class="nav-link shopperz" role="button" aria-expanded="false">
+            Cart
           </a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle shopperz" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Products
+        <li class="nav-item">
+          <a class="nav-link shopperz" role="button" aria-expanded="false">
+            Log out
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Electronics</a></li>
             <li><a class="dropdown-item" href="#">Jewellery</a></li>
             <li><a class="dropdown-item" href="#">Men's clothing</a></li>
             <li><a class="dropdown-item" href="#">Women's clothing</a></li>
-          </ul>
+          </ul> -->
         </li>
       </ul>
       
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" 
-        [(ngModel)]="category" [ngModelOptions]="{standalone: true}" (input)="onSearchCategory()">
+        [(ngModel)]="category" [ngModelOptions]="{standalone: true}" (input)="onSearchCategory()" placeholder="Search by category">
         <a class="btn btn-lg active" aria-current="page" routerLink='/display' type="submit"> Search </a>
       </form>
     </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ItemsService } from '../items.service';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-enlarged',
@@ -8,17 +10,18 @@ import { ItemsService } from '../items.service';
 })
 export class EnlargedComponent implements OnInit {
   allProducts: any;
+  product: Product | undefined;
+ 
 
-  constructor( private itemsService: ItemsService ) { }
+  constructor( private itemsService: ItemsService, private route: ActivatedRoute ) { }
 
-  ngOnInit(){
-    this.onItemFetch()
+  ngOnInit(): void{
+    this.route.params.subscribe(params => this.onGetById(params['id']))
   }
 
-  onItemFetch(){
-    this.itemsService.fetchProduct().subscribe((products:any) => {
-        this.allProducts= products;    
+  onGetById(id:number){
+    this.itemsService.getById(id).subscribe((data:Product)=>{
+      this.product= data
     });
   };
-
 }
