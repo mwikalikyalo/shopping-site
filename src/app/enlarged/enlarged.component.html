@@ -7,10 +7,9 @@
             <img src="../../assets/fashion2.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h6 class="card-title"> {{ product?.title }} </h6>
-              <p class="card-text"> USD. {{ product?.price }}</p>
+              <p class="card-text"> USD. {{ product?.price | currency }}</p>
               <p class="card-text"> {{ product?.category }} </p>
               <p class="card-text"><span> Description.</span> <br> {{ product?.description }} </p>
-              <a href="#" class="btn"> Order </a>
             </div>
           </div>
         </div>
@@ -21,7 +20,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ product?.title }}</h5>
               <p class="card-text"> USD. {{ product?.price }}</p>
-              <a href="#" class="btn" (click)="onAddToCart(product)"> Order </a>
+              <a routerLink="/cart" class="btn" (click)="onAddToCart(product)"> Order </a>
             </div>
           </div>
         </div>

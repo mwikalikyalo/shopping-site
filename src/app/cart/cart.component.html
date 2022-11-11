@@ -1,1 +1,30 @@
+<!-- <h3>Your orders.</h3>
+<hr>
+<div class="cart-item" *ngFor="let item of product">
+  <span>{{ item.title }}</span>
+  <span>{{ item.price | currency }}</span>
+</div> -->
 
+<app-navbar></app-navbar>
+<div class="table-responsive whole">
+  <table class="table table-bordered table-md" id="twhole" >
+    <thead class="ttitle">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Product name</th>
+        <th scope="col">Number</th>
+        <th scope="col">Price</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of product, index as i">
+        <th scope="row">{{ i+1 }}</th>
+        <td>T-shirt</td>
+        <td>Number</td>
+        <td>USD. 64.00</td>
+        <td>Total</td>
+      </tr>
+    </tbody>
+  </table> 
+</div>

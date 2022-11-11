@@ -1,0 +1,19 @@
+.whole{
+  background-color: #fefae0;
+  background-size: cover;
+  margin: 0;
+  padding: 10px;
+}
+
+#twhole{
+  border: 3px solid #283618;
+  margin: 0;
+}
+
+.ttitle{
+  background-color: #283618;
+  background-size: 20%;
+  color: #dda15e;
+  font-weight: 500;
+  font-family: 'Playfair Display', serif;
+}
