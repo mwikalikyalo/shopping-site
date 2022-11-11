@@ -8,8 +8,11 @@ import { Product } from '../product';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
+
 export class CartComponent implements OnInit {
+  
   product: Product[] = [];
+  
   items= this.cartService.getItem();
 
   constructor(private cartService: CartService, private httpClient: HttpClient) { }

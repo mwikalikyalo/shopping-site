@@ -1,11 +1,20 @@
 #shop{
   color: #fefae0;
   font-weight: 800;
-  font-size: 20px;
+  font-size: 27px;
+  font-family: 'Playfair Display', serif;
 }
 
 li> a.shopperz{
   color: #dda15e;
+  font-size: 20px;
+  margin: 0 5px;
+}
+
+.home{
+  color: #dda15e;
+  font-size: 20px;
+  margin: 0 5px;
 }
 
 li> a.shopperz:hover{

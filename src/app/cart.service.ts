@@ -5,19 +5,20 @@ import { Product } from '../app/product';
   providedIn: 'root'
 })
 export class CartService {
-  products: Product[]= [];
 
-  addToCart(products: Product){
-    this.products.push(products);
+  items: Product[]= [];
+
+  addToCart(product: Product){
+    this.items.push(product);
   }
 
   getItem(){
-    return this.products;
+    return this.items;
   }
 
   clearCart(){
-    this.products= [];
-    return this.products;
+    this.items= [];
+    return this.items;
   }
 
   constructor() { }

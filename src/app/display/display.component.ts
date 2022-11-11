@@ -10,7 +10,7 @@ import { Product } from '../product'
 
 export class DisplayComponent implements OnInit {  
   allProducts: any;
-
+  
   product: Product[] = [];
   
   searchText: string= '';
