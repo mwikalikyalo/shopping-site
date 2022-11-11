@@ -18,6 +18,7 @@ import { GuardService } from './guard.service';
 import { AuthService } from './auth.service';
 import { EnlargedComponent } from './enlarged/enlarged.component';
 import { FormsModule } from '@angular/forms';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { FormsModule } from '@angular/forms';
     DisplayComponent,
     HomeComponent,
     EnlargedComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

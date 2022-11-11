@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ItemsService } from '../items.service';
 import { Product } from '../product';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-enlarged',
@@ -13,7 +14,7 @@ export class EnlargedComponent implements OnInit {
   product: Product | undefined;
   productId: any; 
 
-  constructor( private itemsService: ItemsService, private route: ActivatedRoute ) { }
+  constructor( private itemsService: ItemsService, private route: ActivatedRoute, private cartService: CartService ) { }
 
   ngOnInit(){
     // this.route.params.subscribe(params => this.onGetById(params['id']))
@@ -31,4 +32,10 @@ export class EnlargedComponent implements OnInit {
       console.log(data)
     });
   };
+
+  //cart
+  onAddToCart(product: Product){
+    this.cartService.addToCart(product);
+    window.alert("Your item has been added to your cart.")
+  }
 }

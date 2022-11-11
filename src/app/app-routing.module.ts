@@ -7,11 +7,13 @@ import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component'
 // import { GuardService } from './guard.service';
 import { EnlargedComponent } from './enlarged/enlarged.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'display', component: DisplayComponent },
   { path: 'enlarged/:id', component: EnlargedComponent},
+  { path: 'cart', component: CartComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
   { path: 'footer', component: FooterComponent },
