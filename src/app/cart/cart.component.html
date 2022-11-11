@@ -18,12 +18,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let items of product, index as i">
-        <th scope="row">{{ i+1 }}</th>
-        <td>{{ items.title }}</td>
-        <td>{{ items.category }}</td>
-        <td>{{ items.price }}</td>
-        <td>{{ items.id }}</td>
+      <tr *ngFor="let product of items, index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ product.title }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.id }}</td>
       </tr>
     </tbody>
   </table> 

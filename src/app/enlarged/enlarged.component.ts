@@ -23,7 +23,7 @@ export class EnlargedComponent implements OnInit {
     this.itemsService.fetchProduct().subscribe((products:any) => {
       this.allProducts= products;    
       this.product= this.allProducts.find(p => p.id == this.productId)
-  }); 
+    }); 
   }
 
   onGetById(id:number): void{
@@ -34,8 +34,9 @@ export class EnlargedComponent implements OnInit {
   };
 
   //cart
-  onAddToCart(product: Product){
-    this.cartService.addToCart(product);
-    window.alert("Your item has been added to your cart.")
+  onAddToCart(items: Product){
+    this.cartService.addToCart(items);
+    window.alert("Your item has been added to your cart.");
+    console.log(items)
   }
 }

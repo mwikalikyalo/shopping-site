@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -19,6 +18,7 @@ import { AuthService } from './auth.service';
 import { EnlargedComponent } from './enlarged/enlarged.component';
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
+import { CartService } from './cart.service';
 
 
 @NgModule({
@@ -45,7 +45,8 @@ import { CartComponent } from './cart/cart.component';
     //added the service
     ItemsService,
     GuardService,
-    AuthService
+    AuthService,
+    CartService
   ],
   bootstrap: [AppComponent]
 })
