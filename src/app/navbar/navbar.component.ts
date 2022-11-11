@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { faCartShopping, faLongArrowAltUp } from '@fortawesome/free-solid-svg-icons'
+import { faCartShopping, faHouseUser, faRightFromBracket, faBagShopping } from '@fortawesome/free-solid-svg-icons'
 // import { AuthService } from '../auth.service';
 import { ItemsService } from '../items.service';
 import { Product } from '../product';
@@ -19,6 +19,9 @@ export class NavbarComponent implements OnInit {
 
   collapsed = true;
   faCartShopping=faCartShopping;
+  faHouseUser= faHouseUser;
+  faRightFromBracket= faRightFromBracket;
+  faBagShopping= faBagShopping;
   siteName= "Shopperz";
 
   constructor(private itemService: ItemsService) { }
