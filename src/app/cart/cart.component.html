@@ -1,30 +1,28 @@
-<!-- <h3>Your orders.</h3>
-<hr>
-<div class="cart-item" *ngFor="let item of product">
-  <span>{{ item.title }}</span>
-  <span>{{ item.price | currency }}</span>
-</div> -->
-
 <app-navbar></app-navbar>
-<div class="table-responsive whole">
-  <table class="table table-bordered table-md" id="twhole" >
-    <thead class="ttitle">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Product name</th>
-        <th scope="col">Number</th>
-        <th scope="col">Price</th>
-        <th scope="col">Total</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of items, index as i">
-        <th scope="row">{{ i + 1 }}</th>
-        <td>{{ product.title }}</td>
-        <td>{{ product.category }}</td>
-        <td>{{ product.price }}</td>
-        <td>{{ product.id }}</td>
-      </tr>
-    </tbody>
-  </table> 
+<div class= "container-fluid whole">
+  <div class="table-responsive ">
+    <table class="table table-bordered table-md" id="twhole" >
+      <thead class="ttitle">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Product name</th>
+          <th scope="col">Number</th>
+          <th scope="col">Price</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of items, index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ product.title }}</td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.id }}</td>
+        </tr>
+      </tbody>
+    </table> 
+  </div>
+  <div class="d-grid gap-2 col-4 mx-auto">
+    <a href="#" class="btn active" aria-current="page" routerLink=''> Checkout </a>
+  </div>
 </div>

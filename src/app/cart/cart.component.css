@@ -1,8 +1,10 @@
 .whole{
+  background: fixed;
   background-color: #fefae0;
-  background-size: cover;
+  height: 91vh;
   margin: 0;
   padding: 10px;
+  overflow-y: hidden
 }
 
 #twhole{
@@ -17,3 +19,12 @@
   font-weight: 500;
   font-family: 'Playfair Display', serif;
 }
+
+.btn{
+  padding: 5px;
+  color: #DDA15E;
+  background-color: #283618;
+}
+
+
+
