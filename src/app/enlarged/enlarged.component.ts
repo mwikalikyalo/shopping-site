@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ItemsService } from '../items.service';
 import { Product } from '../product';
 import { CartService } from '../cart.service';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faMinus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-enlarged',
@@ -10,6 +12,8 @@ import { CartService } from '../cart.service';
   styleUrls: ['./enlarged.component.css']
 })
 export class EnlargedComponent implements OnInit {
+  faPlus = faPlus;
+  faMinus= faMinus;
   allProducts: any;
   product: Product | undefined;
   productId: any; 

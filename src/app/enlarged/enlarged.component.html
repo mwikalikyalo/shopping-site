@@ -20,7 +20,15 @@
             <div class="card-body">
               <h5 class="card-title">{{ product?.title }}</h5>
               <p class="card-text"> USD. {{ product?.price }}</p>
-              <a routerLink="/cart" class="btn" (click)="onAddToCart(product)"> Order </a>
+
+              <!-- adding or reducing items -->
+              <div class="content">
+                <a class="btn-sm sign"> <fa-icon [icon]="faPlus"></fa-icon> </a>
+                <span> 1 </span>
+                <a class="btn-sm sign"> <fa-icon [icon]="faMinus"></fa-icon> </a>     
+              </div>
+
+              <a routerLink="/cart" class="btn" (click)="onAddToCart(product)"> Order </a>        
             </div>
           </div>
         </div>

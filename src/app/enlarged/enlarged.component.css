@@ -84,4 +84,12 @@
 
 }
 
+.sign{
+  background-color: #dda15e;
+  color: #283618;
+  margin: 10px;
+}
 
+.content{
+  padding: 10px;
+}
