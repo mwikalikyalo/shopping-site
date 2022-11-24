@@ -14,6 +14,7 @@ import { faMinus } from '@fortawesome/free-solid-svg-icons';
 export class EnlargedComponent implements OnInit {
   faPlus = faPlus;
   faMinus= faMinus;
+  quantity: Number = 1;
   allProducts: any;
   product: Product | undefined;
   productId: any; 
@@ -37,10 +38,20 @@ export class EnlargedComponent implements OnInit {
     });
   };
 
-  //cart
+  //add to cart
   onAddToCart(items: Product){
     this.cartService.addToCart(items);
     window.alert("Your item has been added to your cart.");
     console.log(items)
+  }
+
+  //increase and decrease items
+  increase(quantity){
+    console.log(quantity);
+
+  }
+
+  decrease(product){
+
   }
 }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { Product } from '../product';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +11,7 @@ import { Product } from '../product';
 })
 
 export class CartComponent implements OnInit {
-  
+  faTrash = faTrash;
   product: Product[] = [];
   
   items= this.cartService.getItem();
@@ -20,5 +21,11 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     
   }
+  
+  onClearCart(){
+    this.cartService.clearCart();
+    window.alert("Your item has been removed to your cart.");
+  }
+   
 
 }

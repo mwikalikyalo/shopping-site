@@ -9,6 +9,7 @@
           <th scope="col">Number</th>
           <th scope="col">Price</th>
           <th scope="col">Total</th>
+          <th scope="col">Remove item</th>
         </tr>
       </thead>
       <tbody>
@@ -18,11 +19,14 @@
           <td>{{ product.category }}</td>
           <td>{{ product.price }}</td>
           <td>{{ product.id }}</td>
+          <td> <fa-icon [icon]="faTrash"></fa-icon> </td>
         </tr>
       </tbody>
     </table> 
   </div>
-  <div class="d-grid gap-2 col-2 mx-auto">
+  <div class="d-grid gap-2 col-6 mx-auto d-flex justify-content-end">
     <a class="btn active" aria-current="page" routerLink='/'> Checkout </a>
+    <a class="btn active" aria-current="page" routerLink='/display' (click)="onClearCart()"><fa-icon [icon]="faTrash"></fa-icon> Remove all </a>
   </div>
+
 </div>
