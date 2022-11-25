@@ -23,9 +23,9 @@
 
               <!-- adding or reducing items -->
               <div class="content">
-                <a class="btn-sm sign" (click)="increase(product)"> <fa-icon [icon]="faPlus"></fa-icon> </a>
-                <span> {{ quantity }} </span>
-                <a class="btn-sm sign" (click)="decrease(product)"> <fa-icon [icon]="faMinus"></fa-icon> </a>     
+                <a class="btn-sm sign" (click)="increase()"> <fa-icon [icon]="faPlus"></fa-icon> </a>
+                <span>{{ quantity }}</span>
+                <a class="btn-sm sign" (click)="decrease()"> <fa-icon [icon]="faMinus"></fa-icon> </a>     
               </div>
 
               <a routerLink="/cart" class="btn" (click)="onAddToCart(product)"> Order </a>        

@@ -14,7 +14,7 @@ import { faMinus } from '@fortawesome/free-solid-svg-icons';
 export class EnlargedComponent implements OnInit {
   faPlus = faPlus;
   faMinus= faMinus;
-  quantity: Number = 1;
+  quantity = 1;
   allProducts: any;
   product: Product | undefined;
   productId: any; 
@@ -46,12 +46,11 @@ export class EnlargedComponent implements OnInit {
   }
 
   //increase and decrease items
-  increase(quantity){
-    console.log(quantity);
-
+  increase(){
+    this.quantity ++  
   }
 
-  decrease(product){
-
+  decrease(){
+    this.quantity --
   }
 }
