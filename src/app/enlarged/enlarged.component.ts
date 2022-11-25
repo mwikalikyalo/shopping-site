@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ItemsService } from '../items.service';
 import { Product } from '../product';
@@ -14,7 +14,7 @@ import { faMinus } from '@fortawesome/free-solid-svg-icons';
 export class EnlargedComponent implements OnInit {
   faPlus = faPlus;
   faMinus= faMinus;
-  quantity = 1;
+  quantity: any= 1;
   allProducts: any;
   product: Product | undefined;
   productId: any; 
@@ -46,6 +46,7 @@ export class EnlargedComponent implements OnInit {
   }
 
   //increase and decrease items
+
   increase(){
     this.quantity ++  
   }

@@ -21,5 +21,11 @@ export class CartService {
     return this.items;
   }
 
+  getTotalValue():number {
+    let sum = this.items.reduce(
+        (a, b) => {a = a + b['items']?.price * b.quantity; return a;}, 0);
+    return sum;
+  }
+
   constructor() { }
 }
