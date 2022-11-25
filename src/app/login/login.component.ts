@@ -19,11 +19,11 @@ export class LoginComponent implements OnInit {
   constructor(private authservice: AuthService) { }
 
   ngOnInit() {
-
-  // login(){
-  //     this.authservice.login()
-  // };
   }
+  
+  login(){
+    this.authservice.login()
+  };
 
 }
 

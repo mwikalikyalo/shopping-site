@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { faCartShopping, faHouseUser, faRightFromBracket, faBagShopping } from '@fortawesome/free-solid-svg-icons'
+import { faCartShopping, faHouseUser, faRightFromBracket, faBagShopping, faBasketShopping } from '@fortawesome/free-solid-svg-icons'
 // import { AuthService } from '../auth.service';
 import { ItemsService } from '../items.service';
 import { Product } from '../product';
@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
   faHouseUser= faHouseUser;
   faRightFromBracket= faRightFromBracket;
   faBagShopping= faBagShopping;
+  faBasketShopping= faBasketShopping;
   siteName= "Shopperz";
 
   constructor(private itemService: ItemsService) { }
