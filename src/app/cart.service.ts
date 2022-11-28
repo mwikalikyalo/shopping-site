@@ -26,10 +26,16 @@ export class CartService {
     return this.items;
   }
 
-
   clearCart(){
     this.items= [];
     return this.items;
+  }
+
+  removeItem(items: Product) {
+    const index = this.items.indexOf(items, 0);
+    if (index > -1) {
+        this.items.splice(index, 1);
+    }
   }
 
   getTotalValue():number {

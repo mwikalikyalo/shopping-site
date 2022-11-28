@@ -20,7 +20,7 @@
           <td><input type="number" [(ngModel)]= "quantity" size="2" id="quantity"/></td>
           <td >{{ product.price| currency }}</td>
           <td>{{ product.price * quantity}} </td>
-          <td> <fa-icon [icon]="faTrash" (click)="onClearCart()"></fa-icon> </td>
+          <td> <fa-icon [icon]="faTrash" (click)="removeFromCart(product)"></fa-icon> </td>
         </tr>
       </tbody>
     </table> 
