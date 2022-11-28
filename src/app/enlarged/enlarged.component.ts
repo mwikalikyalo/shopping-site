@@ -5,12 +5,14 @@ import { Product } from '../product';
 import { CartService } from '../cart.service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
+import { Quantity } from '../quantity';
 
 @Component({
   selector: 'app-enlarged',
   templateUrl: './enlarged.component.html',
   styleUrls: ['./enlarged.component.css']
 })
+
 export class EnlargedComponent implements OnInit {
   faPlus = faPlus;
   faMinus= faMinus;
@@ -18,6 +20,7 @@ export class EnlargedComponent implements OnInit {
   allProducts: any;
   product: Product | undefined;
   productId: any; 
+  // quantity: Quantity | undefined;
 
   constructor( private itemsService: ItemsService, private route: ActivatedRoute, private cartService: CartService ) { }
 
@@ -28,7 +31,7 @@ export class EnlargedComponent implements OnInit {
     this.itemsService.fetchProduct().subscribe((products:any) => {
       this.allProducts= products;    
       this.product= this.allProducts.find(p => p.id == this.productId)
-    }); 
+    });3
   }
 
   onGetById(id:number): void{
@@ -39,11 +42,17 @@ export class EnlargedComponent implements OnInit {
   };
 
   //add to cart
+
   onAddToCart(items: Product){
     this.cartService.addToCart(items);
     window.alert("Your item has been added to your cart.");
     console.log(items)
   }
+  // onAddToCart(quantity: Quantity){
+  //   this.cartService.addToCart(quantity.product);
+  //   window.alert("Your item has been added to your cart.");
+  //   console.log(quantity.product)
+  // }
 
   //increase and decrease items
 

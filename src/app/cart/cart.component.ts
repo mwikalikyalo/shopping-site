@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { Product } from '../product';
+import { Quantity } from '../quantity';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -13,8 +14,9 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 export class CartComponent implements OnInit {
   faTrash = faTrash;
   product: Product[] = [];
+  quantity: Quantity | any;
   
-  items= this.cartService.getItem();
+  quant= this.cartService.getItem();
 
   constructor(private cartService: CartService, private httpClient: HttpClient) { }
 
