@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DisplayComponent } from './display/display.component';
-import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { HomeComponent } from './home/home.component'
-import { GuardService } from './guard.service';
-import { EnlargedComponent } from './enlarged/enlarged.component';
-import { CartComponent } from './cart/cart.component';
+import { DisplayComponent } from './components/display/display.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { HomeComponent } from './components/home/home.component'
+import { GuardService } from './services/guard.service';
+import { EnlargedComponent } from './components/enlarged/enlarged.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

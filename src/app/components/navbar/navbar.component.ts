@@ -2,8 +2,8 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { faCartShopping, faHouseUser, faRightFromBracket, faBagShopping, faBasketShopping } from '@fortawesome/free-solid-svg-icons'
 // import { AuthService } from '../auth.service';
-import { ItemsService } from '../items.service';
-import { Product } from '../product';
+import { ItemsService } from '../../services/items.service';
+import { Product } from '../../product';
 
 @Component({
   selector: 'app-navbar',

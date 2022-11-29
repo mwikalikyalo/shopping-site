@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../app/product';
-import { Quantity } from '../app/quantity';
+import { Product } from '../product';
+import { Quantity } from '../quantity';
 
 @Injectable({
   providedIn: 'root'
@@ -9,14 +9,6 @@ export class CartService {
 
   items: Product[]= [];
   quantity: Quantity[] = [];
-
-  // addToCart(quantity: Quantity){
-  //   this.quantity.push(quantity.product);
-  // }
-
-  // getItem(){
-  //   return this.quantity;
-  // }
 
   addToCart(product: Product){
     this.items.push(product);
@@ -38,10 +30,9 @@ export class CartService {
     }
   }
 
-  getTotalValue():number {
-    let sum = this.quantity.reduce(
-        (a, b) => {a = a + b.product?.price * b.quantity; return a;}, 0);
-    return sum;
+  checkoutItem(){
+    this.items= [];
+    return this.items;  
   }
 
   constructor() { }

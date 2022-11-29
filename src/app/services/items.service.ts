@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { throwError, Observable, map, of } from 'rxjs';
-import { Product } from './product';
+import { Product } from '../product';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -42,10 +42,9 @@ export class ItemsService {
       );
   }
 
-   //view enlarged item by id
-  //  getById(id:any): Observable<Product[]>{
-  //   return this.http.get<Product[]>(`${this.baseUrl}/id=?${id}`);
-  // }
+  increaseQty(payload) {
+    return this.http.post(`${this.baseUrl}/cart`, payload);
+  }
 
   //find item by category
   searching(category:any): Observable<Product[]>{

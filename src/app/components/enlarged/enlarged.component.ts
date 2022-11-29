@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ItemsService } from '../items.service';
-import { Product } from '../product';
-import { CartService } from '../cart.service';
+import { ItemsService } from '../../services/items.service';
+import { Product } from '../../product';
+import { CartService } from '../../services/cart.service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
-import { Quantity } from '../quantity';
+import { Quantity } from '../../quantity';
 
 @Component({
   selector: 'app-enlarged',

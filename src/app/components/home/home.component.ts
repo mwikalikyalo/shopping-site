@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({

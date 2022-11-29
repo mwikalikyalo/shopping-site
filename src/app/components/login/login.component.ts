@@ -3,22 +3,28 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faSquareTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class SignupComponent implements OnInit {
+export class LoginComponent implements OnInit {
   faEnvelope = faEnvelope;
   faFacebook = faFacebook;
   faSquareTwitter = faSquareTwitter;
   faCartShopping = faCartShopping;
-  
 
-  constructor() { }
+  constructor(private authservice: AuthService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
+  
+  login(){
+    this.authservice.login()
+  };
 
 }
+
+

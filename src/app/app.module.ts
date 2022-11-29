@@ -1,37 +1,39 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { DisplayComponent } from './display/display.component';
-import { ItemsService } from './items.service';//added the items service
-import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
-import { GuardService } from './guard.service';
-import { AuthService } from './auth.service';
-import { EnlargedComponent } from './enlarged/enlarged.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CartComponent } from './cart/cart.component';
-import { CartService } from './cart.service';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CartComponent } from './components/cart/cart.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { DisplayComponent } from './components/display/display.component';
+import { EnlargedComponent } from './components/enlarged/enlarged.component';
+import { HomeComponent } from './components/home/home.component';
+
+import { GuardService } from './services/guard.service';
+import { AuthService } from './services/auth.service';
+import { ItemsService } from './services/items.service';//added the items service
+import { CartService } from './services/cart.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     FooterComponent,
-    LoginComponent,
     SignupComponent,
+    LoginComponent,
     DisplayComponent,
     HomeComponent,
     EnlargedComponent,
-    CartComponent,
+    NavbarComponent,
+    CartComponent
+
   ],
   imports: [
     BrowserModule,

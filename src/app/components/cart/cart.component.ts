@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../cart.service';
+import { CartService } from '../../services/cart.service';
 import { FormArray, FormControl } from '@angular/forms';
-import { Product } from '../product';
-import { Quantity } from '../quantity';
+import { Product } from '../../product';
+import { Quantity } from '../../quantity';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -17,8 +17,8 @@ export class CartComponent implements OnInit {
   product: Product[] = [];
   // quantity: Quantity | any;
   quantity: Quantity|any = [{ key: 1, values: 0 }];
-
   quant= this.cartService.getItem();
+  
 
   constructor(private cartService: CartService, private httpClient: HttpClient) { }
 
@@ -32,6 +32,10 @@ export class CartComponent implements OnInit {
   }
   removeFromCart(item: Product){
     this.cartService.removeItem(item);
+  }
+  onCheckoutItem(){
+    this.cartService.checkoutItem();
+    window.alert("Your items will be delievered to you in 7 days.")
   }
 
 }

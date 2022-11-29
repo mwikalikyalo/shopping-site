@@ -8,25 +8,27 @@
           <th scope="col">Product name</th>
           <th scope="col">Quantity</th>
           <th scope="col">Price</th>
-          <th scope="col">Total</th>
+          <th scope="col">Sub Total</th>
           <th scope="col">Remove item</th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngFor="let product of quant, index as i">
+      <tbody *ngFor="let product of quant, index as i">
+        <tr>
           <th scope="row">{{ i + 1 }}</th>
-          <td>{{ product?.title }}</td>
+          <td>{{ product.title }}</td>
           <td><input type="number" size="2" class="form-control" [(ngModel)]='quantity[i]' /></td>
           <td >{{ product.price | currency }}</td>
-          <td> $ {{ product.price * quantity[i] }} </td>
+          <td> {{ product.price * quantity[i] | currency }} </td>
           <td> <fa-icon [icon]="faTrash" (click)="removeFromCart(product)"></fa-icon> </td>
         </tr>
       </tbody>
-    </table> 
-  </div>
-  <div class="d-grid gap-2 col-6 mx-auto d-flex justify-content-end">
-    <a class="btn active" aria-current="page" routerLink='/'> Checkout </a>
-    <a class="btn active" aria-current="page" routerLink='/display' (click)="onClearCart()"><fa-icon [icon]="faTrash"></fa-icon> Remove all </a>
-  </div>
+      
+    </table>
 
+    <div class="d-grid gap-2 col-6 mx-auto d-flex justify-content-end">
+      <a class="btn active" aria-current="page" routerLink='/display' (click)="onCheckoutItem()"> Checkout </a>
+      <!-- <a class="btn active" aria-current="page" routerLink='/display' (click)="onClearCart()"><fa-icon [icon]="faTrash"></fa-icon> Remove all </a> -->
+    </div>
+
+  </div>
 </div>
