@@ -16,7 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { GuardService } from './guard.service';
 import { AuthService } from './auth.service';
 import { EnlargedComponent } from './enlarged/enlarged.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './cart.service';
 
@@ -40,6 +40,7 @@ import { CartService } from './cart.service';
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     //added the service

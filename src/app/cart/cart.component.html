@@ -10,16 +10,15 @@
           <th scope="col">Price</th>
           <th scope="col">Total</th>
           <th scope="col">Remove item</th>
-          <th scope="col">&nbsp;</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let product of quant, index as i">
           <th scope="row">{{ i + 1 }}</th>
           <td>{{ product?.title }}</td>
-          <td><input type="number" [(ngModel)]= "quantity" size="2" id="quantity"/></td>
-          <td >{{ product.price| currency }}</td>
-          <td>{{ product.price * quantity}} </td>
+          <td><input type="number" size="2" class="form-control" [(ngModel)]='quantity[i]' /></td>
+          <td >{{ product.price | currency }}</td>
+          <td> $ {{ product.price * quantity[i] }} </td>
           <td> <fa-icon [icon]="faTrash" (click)="removeFromCart(product)"></fa-icon> </td>
         </tr>
       </tbody>
