@@ -15,11 +15,14 @@ import { SignupComponent } from './components/signup/signup.component';
 import { DisplayComponent } from './components/display/display.component';
 import { EnlargedComponent } from './components/enlarged/enlarged.component';
 import { HomeComponent } from './components/home/home.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 import { GuardService } from './services/guard.service';
 import { AuthService } from './services/auth.service';
 import { ItemsService } from './services/items.service';//added the items service
 import { CartService } from './services/cart.service';
+
+
 
 
 @NgModule({
@@ -32,7 +35,8 @@ import { CartService } from './services/cart.service';
     HomeComponent,
     EnlargedComponent,
     NavbarComponent,
-    CartComponent
+    CartComponent,
+    CheckoutComponent
 
   ],
   imports: [

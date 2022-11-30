@@ -22,8 +22,7 @@ export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService, private httpClient: HttpClient) { }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void {  
   }
   
   onClearCart(){
@@ -33,9 +32,4 @@ export class CartComponent implements OnInit {
   removeFromCart(item: Product){
     this.cartService.removeItem(item);
   }
-  onCheckoutItem(){
-    this.cartService.checkoutItem();
-    window.alert("Your items will be delievered to you in 7 days.")
-  }
-
 }

@@ -10,12 +10,18 @@
     <div class="container-fluid">
       <div class="row g-3">
         <div class="col">
-          <label for="inputEmail4" class="form-label">Full name</label>
+          <label for="inputName4" class="form-label">Full name</label>
           <input type="text" class="form-control" placeholder="full name" aria-label="full name" required>
         </div>
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">Email address</label>
           <input type="email" class="form-control" id="inputEmail4" placeholder="name@email.com" required>
+        </div>
+      </div>
+      <div class="row g-3 d-flex justify-content-center">
+        <div class="col-md-4 text-center">
+          <label for="inputLocation4" class="form-label">Location</label>
+          <input type="text" class="form-control" placeholder="location" aria-label="location" required>
         </div>
       </div>
       <div class="row g-3">
@@ -27,7 +33,7 @@
           <label for="inputPassword4" class="form-label">Confirm Password</label>
           <input type="password" class="form-control" id="inputPassword4" placeholder="confirm password" required> 
         </div>
-      </div>
+      </div>  
     </div>
   
     <!--terms-->
@@ -42,7 +48,7 @@
     <div class="d-grid gap-2 col-6 mx-auto">
       <a type="submit" class="btn btn-lg active" aria-current="page" routerLink='/login' > Sign up </a>
     </div>
-  </form>
+</form>
   <div class="d-flex justify-content-center icons">
     <fa-icon [icon]="faEnvelope"></fa-icon>
     <fa-icon [icon]="faFacebook"></fa-icon>

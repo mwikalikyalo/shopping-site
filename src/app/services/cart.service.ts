@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../product';
 import { Quantity } from '../quantity';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,17 @@ export class CartService {
   clearCart(){
     this.items= [];
     return this.items;
+  }
+
+  private readonly _cart = new BehaviorSubject<Quantity>(new Quantity());
+  readonly cart$ = this._cart.asObservable(); 
+  
+  get cart(): Quantity {
+    return this._cart.getValue();
+  }
+
+  set cart(val: Quantity) {
+    this._cart.next(val);
   }
 
   removeItem(items: Product) {

@@ -42,20 +42,13 @@ export class EnlargedComponent implements OnInit {
   };
 
   //add to cart
-
   onAddToCart(items: Product){
     this.cartService.addToCart(items);
     window.alert("Your item has been added to your cart.");
     console.log(items)
   }
-  // onAddToCart(quantity: Quantity){
-  //   this.cartService.addToCart(quantity.product);
-  //   window.alert("Your item has been added to your cart.");
-  //   console.log(quantity.product)
-  // }
-
+  
   //increase and decrease items
-
   increase(){
     this.quantity ++  
   }

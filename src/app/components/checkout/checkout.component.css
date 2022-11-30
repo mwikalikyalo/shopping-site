@@ -1,0 +1,44 @@
+.checkout{
+  background-color: #fefae0;
+  height: 90vh;
+  font-family: 'Merriweather', serif;
+}
+
+.bg-text{
+  border: 2px solid #283618;
+  padding: 10px;
+  background-color: white;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 55%;
+  padding: 18px;
+  text-align: center;
+  overflow : hidden;
+}
+
+.icons{
+  font-size: 6em;
+  color: #dda15e;
+}
+
+#start{
+  font-size: 18px;
+  font-weight: 600;
+  color: #283618;
+}
+
+#out{
+  font-size: 30px;
+  color: #283618;
+}
+
+.btn{
+  padding: 10px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Merriweather', serif;
+}
