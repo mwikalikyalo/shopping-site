@@ -39,3 +39,10 @@ li> a.shopperz:hover{
 #shopperz{
   color: #dda15e;
 }
+
+.badge{
+  font-size: 10px;
+  font-weight: 700;
+  color: #283618;
+  background-color: #fefae0;
+}

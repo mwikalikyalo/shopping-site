@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Output, OnInit, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ItemsService } from '../../services/items.service';
 import { Product } from '../../product';
 import { CartService } from '../../services/cart.service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
-import { Quantity } from '../../quantity';
+// import { Quantity } from '../../quantity';
 
 @Component({
   selector: 'app-enlarged',
@@ -16,11 +16,11 @@ import { Quantity } from '../../quantity';
 export class EnlargedComponent implements OnInit {
   faPlus = faPlus;
   faMinus= faMinus;
-  quantity: any= 1;
   allProducts: any;
-  product: Product | undefined;
+  public product: Product | any;
   productId: any; 
-  // quantity: Quantity | undefined;
+  public quantityList: any;
+  // quantity: Quantity | any;
 
   constructor( private itemsService: ItemsService, private route: ActivatedRoute, private cartService: CartService ) { }
 
@@ -31,29 +31,42 @@ export class EnlargedComponent implements OnInit {
     this.itemsService.fetchProduct().subscribe((products:any) => {
       this.allProducts= products;    
       this.product= this.allProducts.find(p => p.id == this.productId)
-    });3
+
+      this.allProducts.forEach((a:any) => {
+          Object.assign(a,{quantity:1, total:a.price})
+      });
+        console.log(this.allProducts)
+    });
   }
 
   onGetById(id:number): void{
     this.itemsService.getById(id).subscribe((data:Product)=>{
       this.product= data
       console.log(data)
+     ;
     });
   };
 
   //add to cart
-  onAddToCart(items: Product){
-    this.cartService.addToCart(items);
-    window.alert("Your item has been added to your cart.");
-    console.log(items)
+  // onAddToCart(items: Product){
+  //   this.cartService.addToCart(items);
+  //   window.alert("Your item has been added to your cart.");
+  //   console.log(items)
+  // }
+
+  onAddToCart(products: any){
+    this.cartService.addToCart(products)
+    console.log(this.allProducts)
+    console.log(this.quantityList)
   }
+ 
   
   //increase and decrease items
-  increase(){
-    this.quantity ++  
+  increase(product:any){
+    this.product.quantity ++  
   }
 
-  decrease(){
-    this.quantity --
+  decrease(product:any){
+    this.product.quantity --
   }
 }

@@ -7,9 +7,10 @@
   background-image: url("../../../assets/fashion2.jpg");
   background-repeat: no-repeat;
   background-size: 100%; 
-  padding: 17.6em;
+  padding: 16.6em;
   filter: blur(3px);
   -webkit-filter: blur(3px);
+  overflow: hidden;
 }
 
 .navv{

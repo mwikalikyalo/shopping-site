@@ -1,9 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Router } from '@angular/router';
 import { faCartShopping, faHouseUser, faRightFromBracket, faBagShopping, faBasketShopping } from '@fortawesome/free-solid-svg-icons'
 // import { AuthService } from '../auth.service';
-import { ItemsService } from '../../services/items.service';
 import { Product } from '../../product';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,6 +12,7 @@ import { Product } from '../../product';
 
 export class NavbarComponent implements OnInit {
   category: string = '';
+  public totalItem: number= 0;
 
   @Output()
   searchCategory: EventEmitter<string> = new EventEmitter<string>()
@@ -25,9 +25,13 @@ export class NavbarComponent implements OnInit {
   faBasketShopping= faBasketShopping;
   siteName= "Shopperz";
 
-  constructor(private itemService: ItemsService) { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit() {
+    this.cartService.getProduct()
+    .subscribe(res=>{
+      this.totalItem = res.length;
+    })
   }
 
   onSearchCategory(){

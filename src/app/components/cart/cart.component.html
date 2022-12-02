@@ -1,34 +1,54 @@
 <app-navbar></app-navbar>
-<div class= "container-fluid whole">
-  <div class="table-responsive ">
-    <table class="table table-bordered table-md" id="twhole" >
-      <thead class="ttitle">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Product name</th>
-          <th scope="col">Quantity</th>
-          <th scope="col">Price</th>
-          <th scope="col">Sub Total</th>
-          <th scope="col">Remove item</th>
-        </tr>
-      </thead>
-      <tbody *ngFor="let product of quant, index as i">
-        <tr>
-          <th scope="row">{{ i + 1 }}</th>
-          <td>{{ product.title }}</td>
-          <td><input type="number" size="2" class="form-control" [(ngModel)]='quantity[i]' /></td>
-          <td >{{ product.price | currency }}</td>
-          <td> {{ product.price * quantity[i] | currency }} </td>
-          <td> <fa-icon [icon]="faTrash" (click)="removeFromCart(product)"></fa-icon> </td>
-        </tr>
-      </tbody>
-      
-    </table>
+<ng-container *ngIf="true">
+    <div class= "container-fluid whole">
+      <div class="table-responsive ">
+        <table class="table table-bordered table-md" id="twhole" >
+          <caption class="text-center"> Total : </caption>
+          <thead class="ttitle">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Product name</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Price</th>
+              <th scope="col">Sub Total</th>
+              <th scope="col">Remove item</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let prod of product, index as i">
+            <tr>
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ prod.title }}</td>
+              <td>{{ prod.quantity }}</td>
+              <!-- <td><input type="number" size="2" class="form-control" 
+                [(ngModel)]="prodQuantity[i]" [ngModelOptions]="{standalone: true}" (input)="onAddQuantity()" /></td> -->
+              <td>{{ prod.price | currency }}</td>
+              <td>{{ prod.price * prod.quantity | currency }} </td>
+              <td><fa-icon [icon]="faTrash" (click)="removeFromCart(product)"></fa-icon> </td>
+            </tr>
+          </tbody>    
+        </table>
 
-    <div class="d-grid gap-2 col-6 mx-auto d-flex justify-content-end">
-      <a class="btn active" aria-current="page" routerLink='/checkout' > Checkout </a>
-      <a class="btn active" aria-current="page" routerLink='/display' (click)="onClearCart()"><fa-icon [icon]="faTrash"></fa-icon> Remove all </a>
-    </div>
+        <div class="d-grid gap-3 col-6 mx-auto d-flex justify-content-end">
+          <a class="btn active" aria-current="page" routerLink='/checkout' > Checkout </a>
+          <a class="btn active" aria-current="page" routerLink='/display' > Products </a>
+          <a class="btn active" aria-current="page" routerLink='/display' (click)="onClearCart()"><fa-icon [icon]="faTrash"></fa-icon> Remove all </a>
+        </div>
 
+      </div>
   </div>
+</ng-container>
+
+
+<ng-container *ngIf="false"> 
+  <div class="container">
+    <div class="card">
+      <h5 class="card-title">My Cart</h5>
+    </div>
+    <div class="center">
+      <img src="../../../assets/emptycart.jpg" alt="">
+      <h5>Your cart is empty</h5>
+      <h6>Add items to your cart now.</h6>
+      <a class="btn active" aria-current="page" routerLink='/display' > Shop </a>
+    </div>
 </div>
+</ng-container>

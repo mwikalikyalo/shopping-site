@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsService } from '../../services/items.service';
 import { Product } from '../../product'
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-display',
@@ -11,11 +12,11 @@ import { Product } from '../../product'
 export class DisplayComponent implements OnInit {  
   allProducts: any;
   
-  product: Product[] = [];
+  product: any = [];
   
   searchText: string= '';
   
-  constructor(private itemsService: ItemsService) { }
+  constructor(private itemsService: ItemsService, private cartService: CartService) { }
 
   ngOnInit() {
     this.onItemFetch();
@@ -23,9 +24,16 @@ export class DisplayComponent implements OnInit {
 
   onItemFetch(){
     this.itemsService.fetchProduct().subscribe((products:any) => {
-        this.allProducts= products;    
+        this.allProducts= products;  
+        console.log(this.allProducts)  
     });
   };
+
+  onAddToCart(products: any){
+    this.cartService.addToCart(products)
+    console.log(this.allProducts)
+  }
+ 
 
   //filter by category
   onSearchTextEntered(searchValue: string){

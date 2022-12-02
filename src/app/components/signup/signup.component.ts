@@ -3,6 +3,7 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faSquareTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -15,8 +16,8 @@ export class SignupComponent implements OnInit {
   faSquareTwitter = faSquareTwitter;
   faCartShopping = faCartShopping;
   
-  onSubmit(){
-    
+  onSubmit(form: NgForm){
+    console.log(form)
   }
 
   constructor() { }

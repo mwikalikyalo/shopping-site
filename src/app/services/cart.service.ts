@@ -8,11 +8,31 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class CartService {
 
-  items: Product[]= [];
-  quantity: Quantity[] = [];
+  public items: Product[]= [];
+  // public items: any= [];
+  public quantityList= new BehaviorSubject<any>([]);
 
-  addToCart(product: Product){
+  //loop through the items clicked by id
+  //then counted items (same id)= quantity
+  getProduct(){
+    return this.quantityList.asObservable();
+  }
+  setProduct(product: any){
+    this.items.push(...product)
+    this.quantityList.next(product);
+  }
+
+  addToCart(product: any){
     this.items.push(product);
+    this.quantityList.next(this.items);
+    this.getTotalPrice();
+    console.log(this.items)
+  }
+  getTotalPrice(){
+    let totalPrice= 0;
+    this.items.map((a: any)=>{
+      totalPrice += a.total;
+    })
   }
 
   getItem(){
@@ -22,17 +42,6 @@ export class CartService {
   clearCart(){
     this.items= [];
     return this.items;
-  }
-
-  private readonly _cart = new BehaviorSubject<Quantity>(new Quantity());
-  readonly cart$ = this._cart.asObservable(); 
-  
-  get cart(): Quantity {
-    return this._cart.getValue();
-  }
-
-  set cart(val: Quantity) {
-    this._cart.next(val);
   }
 
   removeItem(items: Product) {

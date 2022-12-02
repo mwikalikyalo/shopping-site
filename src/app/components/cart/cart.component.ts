@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CartService } from '../../services/cart.service';
-import { FormArray, FormControl } from '@angular/forms';
 import { Product } from '../../product';
 import { Quantity } from '../../quantity';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -13,18 +12,30 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 })
 
 export class CartComponent implements OnInit {
-  faTrash = faTrash;
-  product: Product[] = [];
+ 
   // quantity: Quantity | any;
-  quantity: Quantity|any = [{ key: 1, values: 0 }];
+  // quantity: Quantity|any = [{ key: 1, values: 0 }];
+  // prodQuantity: Number = this.quantity ;
+  faTrash = faTrash;
+  public product: any = [];
+  // public totalPrice !: number;
+  totalPrice: any= 0;
+
   quant= this.cartService.getItem();
-  
+
+  // @Output()
+  // addQuantity: EventEmitter<Number> = new EventEmitter<Number>()
 
   constructor(private cartService: CartService, private httpClient: HttpClient) { }
 
   ngOnInit(): void {  
-  }
-  
+    this.cartService.getProduct()
+    .subscribe(res=>{
+      this.product = res;
+      this.totalPrice = this.cartService.getTotalPrice();
+    });
+  };
+
   onClearCart(){
     this.cartService.clearCart();
     window.alert("Your item has been removed to your cart.");
@@ -32,4 +43,10 @@ export class CartComponent implements OnInit {
   removeFromCart(item: Product){
     this.cartService.removeItem(item);
   }
+  // onAddQuantity(){
+  //   this.addQuantity.emit(this.prodQuantity)
+  // }
+
+  
+
 }
