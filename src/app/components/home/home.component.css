@@ -3,14 +3,16 @@
   font-weight: 800;
 }
 
-.bg-image{
-  background-image: url("../../../assets/fashion2.jpg");
-  background-repeat: no-repeat;
-  background-size: 100%; 
-  padding: 16.6em;
-  filter: blur(3px);
-  -webkit-filter: blur(3px);
-  overflow: hidden;
+@media screen and (min-width: 480px){
+  .bg-image{
+    background-image: url("../../../assets/fashion2.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%; 
+    padding: 16.6em;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+    overflow: hidden;
+  }
 }
 
 .navv{
@@ -49,20 +51,22 @@
   font-family: 'Merriweather', serif;
 }
 
-.bg-text {
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(254,250,224, 0.3); /* Black w/opacity/see-through */
-  border: 3px solid #dda15e;
-  border-radius: 10px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  width: 55%;
-  padding: 18px;
-  text-align: center;
-  overflow : hidden;
+@media screen and (min-width: 480px) {
+  .bg-text {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(254,250,224, 0.3); /* Black w/opacity/see-through */
+    border: 3px solid #dda15e;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 55%;
+    padding: 18px;
+    text-align: center;
+    overflow : hidden;
+  }
 }
 
 .btn{
@@ -73,4 +77,10 @@
 .btn:hover{
   color: #FEFAE0;
   background-color: #DDA15E;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: block;
 }

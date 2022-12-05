@@ -96,3 +96,9 @@ span{
   font-weight: 500;
   font-size: 18px;
 }
+
+.row::after {
+  content: "";
+  clear: both;
+  display: block;
+}

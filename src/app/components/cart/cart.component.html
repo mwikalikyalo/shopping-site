@@ -1,9 +1,9 @@
 <app-navbar></app-navbar>
-<ng-container *ngIf="true">
+<ng-container *ngIf="product.length !=0">
     <div class= "container-fluid whole">
       <div class="table-responsive ">
         <table class="table table-bordered table-md" id="twhole" >
-          <caption class="text-center"> Total : </caption>
+          <caption class="text-center"> Total : {{ totalPrice | currency }}</caption>
           <thead class="ttitle">
             <tr>
               <th scope="col">#</th>
@@ -19,27 +19,24 @@
               <th scope="row">{{ i + 1 }}</th>
               <td>{{ prod.title }}</td>
               <td>{{ prod.quantity }}</td>
-              <!-- <td><input type="number" size="2" class="form-control" 
-                [(ngModel)]="prodQuantity[i]" [ngModelOptions]="{standalone: true}" (input)="onAddQuantity()" /></td> -->
               <td>{{ prod.price | currency }}</td>
               <td>{{ prod.price * prod.quantity | currency }} </td>
-              <td><fa-icon [icon]="faTrash" (click)="removeFromCart(product)"></fa-icon> </td>
+              <td><fa-icon [icon]="faTrash" (click)="removeItem(product)"></fa-icon> </td>
             </tr>
           </tbody>    
         </table>
 
         <div class="d-grid gap-3 col-6 mx-auto d-flex justify-content-end">
-          <a class="btn active" aria-current="page" routerLink='/checkout' > Checkout </a>
+          <a class="btn active" aria-current="page" routerLink='/checkout' (click)="onRemoveAllCart()" > Checkout </a>
           <a class="btn active" aria-current="page" routerLink='/display' > Products </a>
-          <a class="btn active" aria-current="page" routerLink='/display' (click)="onClearCart()"><fa-icon [icon]="faTrash"></fa-icon> Remove all </a>
+          <a class="btn active" aria-current="page" routerLink='/display' (click)="onRemoveAllCart()"><fa-icon [icon]="faTrash"></fa-icon> Remove all </a>
         </div>
 
       </div>
   </div>
 </ng-container>
 
-
-<ng-container *ngIf="false"> 
+<ng-container *ngIf="product.length ==0"> 
   <div class="container">
     <div class="card">
       <h5 class="card-title">My Cart</h5>

@@ -60,7 +60,6 @@ export class EnlargedComponent implements OnInit {
     console.log(this.quantityList)
   }
  
-  
   //increase and decrease items
   increase(product:any){
     this.product.quantity ++  

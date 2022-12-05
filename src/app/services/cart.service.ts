@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../product';
-import { Quantity } from '../quantity';
+// import { Quantity } from '../quantity';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -9,7 +9,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class CartService {
 
   public items: Product[]= [];
-  // public items: any= [];
   public quantityList= new BehaviorSubject<any>([]);
 
   //loop through the items clicked by id
@@ -28,11 +27,13 @@ export class CartService {
     this.getTotalPrice();
     console.log(this.items)
   }
-  getTotalPrice(){
+
+  getTotalPrice(): number{
     let totalPrice= 0;
     this.items.map((a: any)=>{
       totalPrice += a.total;
     })
+    return totalPrice;
   }
 
   getItem(){
@@ -44,17 +45,25 @@ export class CartService {
     return this.items;
   }
 
-  removeItem(items: Product) {
-    const index = this.items.indexOf(items, 0);
-    if (index > -1) {
-        this.items.splice(index, 1);
-    }
-  }
+  removeItem(product: any) {
+    // const index = this.items.indexOf(items, 0);
+    // if (index > -1) {
+    //     this.items.splice(index, 1);
+    // }
+    this.items.map((a:any, index:any)=>{
+      if(product.id=== a.id){
+        this.items.splice(index,1);
+      }
+    })
+    // this.quantityList.next(this.items);
+   }
 
-  checkoutItem(){
-    this.items= [];
-    return this.items;  
+
+  removeAllCart(){
+    this.items = []
+    this.quantityList.next(this.items);
   }
 
   constructor() { }
+
 }
