@@ -1,13 +1,13 @@
 <div class="container-fluid checkout">
     <div class="row d-flex justify-content-center">
-      <h4 class="text-center checkout">Checkout.</h4>
+      <h4 class="text-center checkout">Checkout</h4>
       <div class="col-6">
         <div class="card summary" style="width: 28rem;">
           <div class="card-body">
             <h5 class="card-title text-center order"> Order Summary </h5>
             <hr>
-            <p class="card-text subtotal"><strong>Order subtotal: </strong></p>
-            <p class="card-text subtotal"><strong>Shipping cost: </strong></p>
+            <p class="card-text cost"><strong>Order subtotal: </strong></p>
+            <p class="card-text cost"><strong>Shipping cost: </strong></p>
             <hr>
             <p class="card-text total"><strong>Total: </strong></p>
             <a class="btn btn-lg active" aria-current="page" routerLink='/display'> Make Payments </a>
@@ -38,7 +38,7 @@
               <div class="input-group mb-4">   
                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
               </div>
-           
+              <a class="btn btn-lg active d-flex justify-content-center" aria-current="page" routerLink=""> Submit </a>
           </div>
         </div>
       </div>
@@ -49,15 +49,15 @@
             <h5 class="card-title text-center order">Payment Method</h5>
             <hr>
             <div class="btn-group d-flex justify-content-center" role="group" aria-label="Basic radio toggle button group">
-              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-              <label class="btn select" for="btnradio1"> Card </label>
-            
-              <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" (click)="show()">
+              <label class="btn select" for="btnradio1"> Card </label>           
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" (click)="hide()">
               <label class="btn select" for="btnradio2"> M-Pesa </label>
             </div>
             <hr> 
 
             <!-- card -->
+          <ng-container *ngIf="card">
             <div class="card">
               <h5 class="card-header text-center total">Card Information</h5>
               <div class="card-body">
@@ -83,8 +83,10 @@
               </div>
               <a class="btn btn-lg active" aria-current="page" routerLink='/cart'> Pay </a>
             </div>
+          </ng-container>
 
             <!-- mpesa -->
+          <ng-container *ngIf="mpesa">
             <div class="card">
               <h5 class="card-header text-center total">M-Pesa</h5>
               <div class="card-body">
@@ -98,12 +100,22 @@
                   <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                   <span class="input-group-text voucher" id="basic-addon2">Add Voucher</span>
                 </div>
+
+                <input class="form-check-input" type="checkbox" id="gridCheck" name="terms"  ngModel [ngModelOptions]="{standalone: true}" required />
+                <label class="form-check-label subtotal" for="gridCheck"> &nbsp; Keep phone number. </label>
+
               </div>
               <a class="btn btn-lg active" aria-current="page" routerLink='/cart'> Pay </a>
             </div>
+          </ng-container>
 
         </div>
-      </div>      
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center ">
+      <a class="btn btn-lg active check col-md-4 select" aria-current="page" routerLink='/delivery'> Checkout </a>
     </div> 
-  <a class="btn btn-lg active" aria-current="page" routerLink='/cart'> Checkout </a>
+   
+    </div> 
 </div>

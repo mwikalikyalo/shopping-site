@@ -9,6 +9,7 @@ import { GuardService } from './services/guard.service';
 import { EnlargedComponent } from './components/enlarged/enlarged.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { DeliveryComponent } from './components/delivery/delivery.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'checkout', component: CheckoutComponent },
+  { path: 'delivery', component: DeliveryComponent },
 ];
 
 @NgModule({

@@ -2,6 +2,7 @@
   font-family: 'Merriweather', serif;
   padding: 5px;
   color: #283618;
+  overflow-x: hidden;
 }
 
 .btn{
@@ -38,6 +39,10 @@
   font-weight: 900;
 }
 
+.cost{
+  font-size: 17px;
+}
+
 .total{
   font-size: 20px;
   color: #283618;
@@ -69,4 +74,9 @@
 .cart{
   position: absolute;
   bottom: 3em;
+}
+
+.check{
+  padding: 10px;
+  font-size: 17px;
 }
