@@ -6,10 +6,10 @@
           <div class="card-body">
             <h5 class="card-title text-center order"> Order Summary </h5>
             <hr>
-            <p class="card-text cost"><strong>Order subtotal: </strong></p>
-            <p class="card-text cost"><strong>Shipping cost: </strong></p>
+            <p class="card-text cost"><strong>Order subtotal: </strong> {{ totalPrice | currency }}</p>
+            <p class="card-text cost"><strong>Shipping cost: </strong> {{ shippingCost | currency }}</p>
             <hr>
-            <p class="card-text total"><strong>Total: </strong></p>
+            <p class="card-text total"><strong>Total: </strong>{{ totalPrice + shippingCost | currency }}</p>
             <a class="btn btn-lg active" aria-current="page" routerLink='/display'> Make Payments </a>
           </div>
         </div>
@@ -49,7 +49,7 @@
             <h5 class="card-title text-center order">Payment Method</h5>
             <hr>
             <div class="btn-group d-flex justify-content-center" role="group" aria-label="Basic radio toggle button group">
-              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" (click)="show()">
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" (click)="show()" checked>
               <label class="btn select" for="btnradio1"> Card </label>           
               <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" (click)="hide()">
               <label class="btn select" for="btnradio2"> M-Pesa </label>

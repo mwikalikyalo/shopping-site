@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-checkout',
@@ -8,12 +9,20 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 })
 export class CheckoutComponent implements OnInit {
   faStar= faStar;
-  public card:boolean = false;
+  public product: any = [];
+  public totalPrice: number;
+  public card:boolean = true;
   public mpesa:boolean = false;
+  public shippingCost: number= 8;
 
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.cartService.getProduct()
+    .subscribe(res=>{
+      this.product = res;
+    });
+    this.totalPrice = this.cartService.getTotalPrice();
   }
 
   show() {
