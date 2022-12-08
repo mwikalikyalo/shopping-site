@@ -3,6 +3,7 @@ import { Product } from '../product';
 // import { Quantity } from '../quantity';
 import { BehaviorSubject, Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,9 +31,9 @@ export class CartService {
 
   getTotalPrice(): number{
     let totalPrice= 0;
-    this.items.map((a: any)=>{
+    this.items.map((a: any) => {
       totalPrice += a.total;
-    })
+    });
     return totalPrice;
   }
 
@@ -46,18 +47,18 @@ export class CartService {
   }
 
   removeItem(product: any) {
-    // const index = this.items.indexOf(items, 0);
-    // if (index > -1) {
-    //     this.items.splice(index, 1);
-    // }
-    this.items.map((a:any, index:any)=>{
-      if(product.id=== a.id){
-        this.items.splice(index,1);
-      }
-    })
-    // this.quantityList.next(this.items);
-   }
-
+    const index = this.items.indexOf(product, 0);
+    if (index > -1) {
+        this.items.splice(index, 1);
+    }
+  }
+  //   this.items.map((a:any, index:any)=>{
+  //     if(product.id=== a.id){
+  //       this.items.splice(index,1);
+  //     }
+  //   })
+  //   this.quantityList.next(this.items);
+  //  }
 
   removeAllCart(){
     this.items = []

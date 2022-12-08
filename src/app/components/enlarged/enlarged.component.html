@@ -21,15 +21,10 @@
                 <div class="card-body">
                   <h5 class="card-title">{{ product.title }}</h5>
                   <p class="card-text"> {{ product.price | currency}} </p>
-    
-                  <!-- adding or reducing items -->
-                  <div class="content">   
-                    <a class="btn-sm sign" (click)="increase(product)"> <fa-icon [icon]="faPlus"></fa-icon> </a>
-                    <span>{{ product.quantity }}</span>
-                    <a class="btn-sm sign" (click)="decrease(product)"> <fa-icon [icon]="faMinus"></fa-icon> </a>     
-                  </div>
-    
-                  <a routerLink="/cart" class="btn" (click)="onAddToCart(product)"> Confirm Order </a>        
+                  <p class="card-text"> Items available: {{ count }}</p> 
+  
+                  <a routerLink="/cart" class="btn" (click)="onAddToCart(product)"> Order </a>  
+
                 </div>
               </div>
             </div>

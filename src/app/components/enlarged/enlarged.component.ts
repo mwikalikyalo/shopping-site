@@ -16,11 +16,11 @@ import { faMinus } from '@fortawesome/free-solid-svg-icons';
 export class EnlargedComponent implements OnInit {
   faPlus = faPlus;
   faMinus= faMinus;
-  allProducts: any;
+  public allProducts: any;
   public product: Product | any;
   productId: any; 
-  public quantityList: any;
-  // quantity: Quantity | any;
+  public totalPrice: number;
+  count: number = 15;
 
   constructor( private itemsService: ItemsService, private route: ActivatedRoute, private cartService: CartService ) { }
 
@@ -31,11 +31,6 @@ export class EnlargedComponent implements OnInit {
     this.itemsService.fetchProduct().subscribe((products:any) => {
       this.allProducts= products;    
       this.product= this.allProducts.find(p => p.id == this.productId)
-
-      this.allProducts.forEach((a:any) => {
-          Object.assign(a,{quantity:1, total:a.price})
-      });
-        console.log(this.allProducts)
     });
   }
 
@@ -48,24 +43,10 @@ export class EnlargedComponent implements OnInit {
   };
 
   //add to cart
-  // onAddToCart(items: Product){
-  //   this.cartService.addToCart(items);
-  //   window.alert("Your item has been added to your cart.");
-  //   console.log(items)
-  // }
-
   onAddToCart(products: any){
     this.cartService.addToCart(products)
+    this.cartService.getTotalPrice()
     console.log(this.allProducts)
-    console.log(this.quantityList)
-  }
- 
-  //increase and decrease items
-  increase(product:any){
-    this.product.quantity ++  
-  }
-
-  decrease(product:any){
-    this.product.quantity --
   }
 }
+

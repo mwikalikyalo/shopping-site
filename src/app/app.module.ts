@@ -21,9 +21,7 @@ import { GuardService } from './services/guard.service';
 import { AuthService } from './services/auth.service';
 import { ItemsService } from './services/items.service';//added the items service
 import { CartService } from './services/cart.service';
-
-
-
+import { DeliveryComponent } from './components/delivery/delivery.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +34,8 @@ import { CartService } from './services/cart.service';
     EnlargedComponent,
     NavbarComponent,
     CartComponent,
-    CheckoutComponent
-
+    CheckoutComponent,
+    DeliveryComponent
   ],
   imports: [
     BrowserModule,

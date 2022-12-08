@@ -2,8 +2,8 @@
 <ng-container *ngIf="product.length !=0">
     <div class= "container-fluid whole">
       <div class="table-responsive ">
-        <table class="table table-bordered table-md" id="twhole" >
-          <caption class="text-center"> Total : {{ totalPrice | currency }}</caption>
+        <table class="table table-md" id="twhole" >
+          <caption class="text-end" > Total : {{ totalPrice | currency }} </caption>
           <thead class="ttitle">
             <tr>
               <th scope="col">#</th>
@@ -14,22 +14,25 @@
               <th scope="col">Remove item</th>
             </tr>
           </thead>
-          <tbody *ngFor="let prod of product, index as i">
+
+          <tbody *ngFor="let prod of product, index as i">   
             <tr>
-              <th scope="row">{{ i + 1 }}</th>
-              <td>{{ prod.title }}</td>
-              <td>{{ prod.quantity }}</td>
-              <td>{{ prod.price | currency }}</td>
-              <td>{{ prod.price * prod.quantity | currency }} </td>
-              <td><fa-icon [icon]="faTrash" (click)="removeItem(product)"></fa-icon> </td>
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ prod.title }}</td>
+                <td><a class="btn sign btn-sm" (click)= "increase(product)" > + </a>
+                  {{ prod.quantity }} <a class="btn sign btn-sm" (click)= "decrease(product)" > - </a> </td>
+                <td>{{ prod.price | currency }}</td>
+                <td>{{ prod.price * prod.quantity | currency }} </td>
+                <td><fa-icon [icon]="faTrash" (click)="onRemoveItem(product)"></fa-icon> </td>
             </tr>
-          </tbody>    
+          </tbody>   
+
         </table>
 
         <div class="d-grid gap-3 col-6 mx-auto d-flex justify-content-end">
           <a class="btn active" aria-current="page" routerLink='/checkout' (click)="onRemoveAllCart()" > Checkout </a>
           <a class="btn active" aria-current="page" routerLink='/display' > Products </a>
-          <a class="btn active" aria-current="page" routerLink='/display' (click)="onRemoveAllCart()"><fa-icon [icon]="faTrash"></fa-icon> Remove all </a>
+          <a class="btn active" aria-current="page" routerLink='/cart' (click)="onRemoveAllCart()"><fa-icon [icon]="faTrash"></fa-icon> Remove all </a>
         </div>
 
       </div>
@@ -47,5 +50,5 @@
       <h6>Add items to your cart now.</h6>
       <a class="btn active" aria-current="page" routerLink='/display' > Shop </a>
     </div>
-</div>
+  </div>
 </ng-container>

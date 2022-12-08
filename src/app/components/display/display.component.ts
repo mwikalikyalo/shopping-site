@@ -43,12 +43,11 @@ export class DisplayComponent implements OnInit {
     });
   };
 
-  onAddToCart(products: any){
+  onAddToCart(products: any){ 
     this.cartService.addToCart(products)
     console.log(this.allProducts)
   }
  
-
   //filter by category
   onSearchTextEntered(searchValue: string){
       this.searchText= searchValue;

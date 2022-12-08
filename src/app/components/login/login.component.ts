@@ -4,6 +4,9 @@ import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faSquareTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../../services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -15,15 +18,37 @@ export class LoginComponent implements OnInit {
   faFacebook = faFacebook;
   faSquareTwitter = faSquareTwitter;
   faCartShopping = faCartShopping;
+  form: FormGroup;
+  loading = false;
+  submitted = false;
 
-  constructor(private authservice: AuthService) { }
+  constructor(
+      private formBuilder: FormBuilder,
+      private route: ActivatedRoute,
+      private router: Router,
+      private authservice: AuthService
+     
+  ) { }
 
   ngOnInit() {
+      this.form = this.formBuilder.group({
+          username: ['', Validators.required],
+          password: ['', Validators.required]
+      });
   }
-  
+
   login(){
     this.authservice.login()
   };
+
+  onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.form.invalid) {
+        return;
+    }   
+  }
 
 }
 

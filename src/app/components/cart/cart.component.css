@@ -67,6 +67,15 @@ caption{
   font-size: 25px;
   font-weight: 700;
   color: #283618;
+  padding: 0.5em 6em;
 }
 
-
+.sign{
+  background-color: #283618;
+  color: #dda15e;
+  clip-path: circle();
+  padding: 3px;
+  font-weight: 700;
+  font-size: 15px;
+  margin: 0px;
+}

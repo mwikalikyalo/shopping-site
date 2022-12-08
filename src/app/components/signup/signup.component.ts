@@ -3,7 +3,8 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faSquareTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -15,14 +16,40 @@ export class SignupComponent implements OnInit {
   faFacebook = faFacebook;
   faSquareTwitter = faSquareTwitter;
   faCartShopping = faCartShopping;
-  
-  onSubmit(form: NgForm){
-    console.log(form)
+  form: FormGroup;
+  loading = false;
+  submitted = false;
+  authService: any;
+
+  constructor(
+      private formBuilder: FormBuilder,
+      private route: ActivatedRoute,
+      private router: Router,
+  ) { }
+
+  ngOnInit() {
+      this.form = this.formBuilder.group({
+          firstName: ['', Validators.required],
+          lastName: ['', Validators.required],
+          username: ['', Validators.required],
+          password: ['', [Validators.required, Validators.minLength(6)]]
+      });
   }
 
-  constructor() { }
+  // convenience getter for easy access to form fields
+  get f() { return this.form.controls; }
 
-  ngOnInit(): void {
+  onSubmit() {
+      this.submitted = true;
+
+      // stop here if form is invalid
+      if (this.form.invalid) {
+          return;
+      }
+
+      this.authService.register(this.form.value);
+          
   }
-
 }
+
+
