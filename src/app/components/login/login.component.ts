@@ -4,7 +4,7 @@ import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faSquareTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../../services/auth.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 
@@ -13,12 +13,21 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
   faEnvelope = faEnvelope;
   faFacebook = faFacebook;
   faSquareTwitter = faSquareTwitter;
   faCartShopping = faCartShopping;
-  form: FormGroup;
+  form: FormGroup = new FormGroup({
+    fullname: new FormControl(''),
+    username: new FormControl(''),
+    email: new FormControl(''),
+    country: new FormControl(''),
+    password: new FormControl(''),
+    confirmPassword: new FormControl(''),
+    acceptTerms: new FormControl(false),
+  });
   loading = false;
   submitted = false;
 
@@ -41,13 +50,16 @@ export class LoginComponent implements OnInit {
     this.authservice.login()
   };
 
-  onSubmit() {
-    this.submitted = true;
+  get f(): { [key: string]: AbstractControl } {
+    return this.form.controls;
+  }
 
-    // stop here if form is invalid
+  onSubmit(): void {
+    this.submitted = true;
     if (this.form.invalid) {
-        return;
-    }   
+      return;
+    }
+    console.log(JSON.stringify(this.form.value, null, 2));
   }
 
 }

@@ -18,6 +18,7 @@ export class CartComponent implements OnInit {
   faMinus= faMinus;
   public product: any = [];
   public totalPrice: number;
+  total:number = 0;
 
   // quant= this.cartService.getItem();
 
@@ -32,7 +33,6 @@ export class CartComponent implements OnInit {
       });
       this.totalPrice = this.cartService.getTotalPrice();
     });  
-
   };
 
   onClearCart(){
@@ -40,8 +40,8 @@ export class CartComponent implements OnInit {
     window.alert("Your item has been removed to your cart.");
   };
 
-  onRemoveItem(product: any){
-    this.cartService.removeItem(product);
+  onRemoveItem(id: any){
+    this.cartService.removeItem(id);
     console.log("done")
   }
 
@@ -49,16 +49,36 @@ export class CartComponent implements OnInit {
     this.cartService.removeAllCart();
   };
 
-  //increase and decrease items
-  increase(product: any){
-    this.product.quantity ++ 
-    console.log("done") 
+  // increase and decrease items
+  increase(id, quantity){
+    for(let a=0; a<this.product.length; a++){
+      if(this.product[a].id  === id){
+        if(quantity != 15)
+          this.product[a].quantity = parseInt(quantity) + 1;
+      }
+    }
   }
 
-  decrease(product: any){
-    this.product.quantity --
-    console.log("not done")
+  decrease(id, quantity){
+    for(let a=0; a<this.product.length; a++){
+      if(this.product[a].id  === id){
+        if(quantity != 0)
+          this.product[a].quantity = parseInt(quantity) - 1;
+      }
+    }
   }
+  // increase(prod: any){
+  //   if(prod.quantity != 15){
+  //     prod.quantity += 1;
+  //   }
+  // }
 
+  // decrease(prod: any){
+  //   if(prod.quantity != 1){
+  //     prod.quantity -= 1;
+  //   }
+  // }
+
+ 
 
 }

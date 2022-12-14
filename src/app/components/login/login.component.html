@@ -5,18 +5,39 @@
     <p class="text-center">Welcome back, please enter your details.</p>
   </div>
 
-  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-    <div class="d-flex justify-content-center">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div class="d-flex justify-content-center form-group">
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Username</label>
         <div class="col-md">
-          <input type="text" class="form-control" required ngModel id="exampleFormControlInput1" placeholder="username">
+          <input type="text" class="form-control" required id="exampleFormControlInput1" 
+          placeholder="username" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }" >
+          <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+            <div *ngIf="f['username'].errors['required']">Username is required</div>
+            <div *ngIf="f['username'].errors['minlength']">
+              Username must be at least 6 characters
+            </div>
+            <div *ngIf="f['username'].errors['maxlength']">
+              Username must not exceed 20 characters
+            </div>
+          </div>  
         </div>       
       </div> 
+
       <div class="mb-3 row">
         <label for="inputPassword" class="form-label">Password</label>
         <div class="col-md">
-          <input type="password" class="form-control" required ngModel id="inputPassword">
+          <input type="password" class="form-control" formControlName="password" required [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+           id="inputPassword">
+          <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+            <div *ngIf="f['password'].errors['required']">Password is required</div>
+            <div *ngIf="f['password'].errors['minlength']">
+              Password must be at least 6 characters
+            </div>
+            <div *ngIf="f['password'].errors['maxlength']">
+              Username must not exceed 40 characters
+            </div>
+          </div>
         </div>
       </div>
     </div>

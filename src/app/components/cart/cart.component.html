@@ -19,14 +19,13 @@
             <tr>
                 <th scope="row">{{ i + 1 }}</th>
                 <td>{{ prod.title }}</td>
-                <td><a class="btn sign btn-sm" (click)= "increase(product)" > + </a>
-                  {{ prod.quantity }} <a class="btn sign btn-sm" (click)= "decrease(product)" > - </a> </td>
+                <td><a class="btn sign btn-sm" (click)= "increase(prod.id, prod.quantity)" > + </a>
+                  {{ prod?.quantity }} <a class="btn sign btn-sm" (click)= "decrease(prod.id, prod.quantity)" > - </a> </td>
                 <td>{{ prod.price | currency }}</td>
                 <td>{{ prod.price * prod.quantity | currency }} </td>
                 <td><fa-icon [icon]="faTrash" (click)="onRemoveItem(product)"></fa-icon> </td>
             </tr>
           </tbody>   
-
         </table>
 
         <div class="d-grid gap-3 col-6 mx-auto d-flex justify-content-end">

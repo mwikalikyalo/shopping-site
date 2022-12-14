@@ -6,60 +6,106 @@
   </section>
 
   <!--fields-->
-<form (ngSubmit)="onSubmit()" [formGroup]="form" #myForm="ngForm">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
     <div class="container-fluid">
       <div class="row g-3">
-        <div class="col">
+        <div class="col form-group">
           <label for="inputName4" class="form-label">Full name</label>
           <input type="text" class="form-control" placeholder="full name" aria-label="full name" 
-            name="fullname" ngModel [ngModelOptions]="{standalone: true}" required />
+            formControlName="fullname" required [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }" />
+            <div *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
+              <div *ngIf="f['fullname'].errors['required']">Fullname is required</div>
+            </div>
         </div>
-        <div class="col-md-6">
+
+        <div class="col-md-6 form-group">
           <label for="inputEmail4" class="form-label">Email address</label>
           <input type="email" class="form-control" id="inputEmail4" placeholder="name@email.com" 
-            name="email" ngModel [ngModelOptions]="{standalone: true}" required />
+          formControlName="email" required [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+          <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+            <div *ngIf="f['email'].errors['required']">Email is required</div>
+            <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+          </div>
         </div>
       </div>
-      <div class="row g-3 d-flex justify-content-center">
-        <div class="col-md-4 text-center">
-          <label for="inputUsername4" class="form-label">Username</label>
-          <input type="text" class="form-control" placeholder="location" aria-label="username" 
-            name="username" ngModel [ngModelOptions]="{standalone: true}" required />
-        </div>
-        <div class="col-md-4 text-center">
-          <label for="inputUsername4" class="form-label">Country</label>
-          <input type="text" class="form-control" placeholder="location" aria-label="username" 
-            name="username" ngModel [ngModelOptions]="{standalone: true}" required />
-        </div>
-      </div>
+
       <div class="row g-3">
-        <div class="col-md-6">
-          <label for="inputPassword4" class="form-label">Password</label>
-          <input type="password" class="form-control" id="inputPassword4" required min-length="8" placeholder="password" name="password" 
-           ngModel [ngModelOptions]="{standalone: true}" />
+        <div class="col-md-4 form-group">
+          <label for="inputUsername4" class="form-label">Username</label>
+          <input type="text" class="form-control" placeholder="username" aria-label="username" 
+          formControlName="username" required [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"/>
+            <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+              <div *ngIf="f['username'].errors['required']">Username is required</div>
+              <div *ngIf="f['username'].errors['minlength']">
+                Username must be at least 6 characters
+              </div>
+              <div *ngIf="f['username'].errors['maxlength']">
+                Username must not exceed 20 characters
+              </div>
+            </div>    
         </div>
-        <div class="col-md-6">
+
+        <div class="col-md-4 form-group">
+          <label for="inputUsername4" class="form-label">Country</label>
+          <input type="text" class="form-control" placeholder="country" aria-label="country" 
+           formControlName="country" required [ngClass]="{ 'is-invalid': submitted && f['country'].errors }" />
+          <div *ngIf="submitted && f['country'].errors" class="invalid-feedback">
+            <div *ngIf="f['country'].errors['required']">Country is required</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-6 form-group">
+          <label for="inputPassword4" class="form-label">Password</label>
+          <input type="password" class="form-control" id="inputPassword4" required min-length="8" placeholder="password" formControlName="password" 
+          [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+          <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+            <div *ngIf="f['password'].errors['required']">Password is required</div>
+            <div *ngIf="f['password'].errors['minlength']">
+              Password must be at least 6 characters
+            </div>
+            <div *ngIf="f['password'].errors['maxlength']">
+              Username must not exceed 40 characters
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 form-group">
           <label for="inputPassword4" class="form-label">Confirm Password</label>
           <input type="password" class="form-control" id="inputConfirmPassword4" required min-length="8" placeholder="confirm password" 
-          name="password2" ngModel [ngModelOptions]="{standalone: true}" /> 
+          formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }" /> 
+            <div *ngIf="submitted && f['confirmPassword'].errors" class="invalid-feedback">
+              <div *ngIf="f['confirmPassword'].errors['required']">
+                Confirm Password is required
+              </div>
+              <div *ngIf="f['confirmPassword'].errors['matching']">
+                Confirm Password does not match
+              </div>
+            </div>
         </div>
       </div>  
+   
+      <!--terms-->
+      <div class="col-12 d-flex justify-content-center form-group form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck" formControlName="acceptTerms" required 
+          [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }" />
+            <label class="form-check-label" for="gridCheck">
+              I have read the Terms and Conditions.
+            </label>
+            <div class="col-md-8">
+              <div *ngIf="submitted && f['acceptTerms'].errors" class="invalid-feedback ">
+                Accept Terms is required </div>
+            </div>
+      </div>
+
+      <!--button and contact us-->
+      <div class="d-grid gap-2 col-6 mx-auto form-group">
+        <input value="Sign up" class="btn" type="submit" (click)="login()" routerLink='/display' />
+        <!-- <a type="submit" class="btn btn-lg active" aria-current="page" > Sign up </a> -->
+      </div>
     </div>
-  
-    <!--terms-->
-    <div class="col-12 d-flex justify-content-center">
-        <input class="form-check-input" type="checkbox" id="gridCheck" name="terms"  ngModel [ngModelOptions]="{standalone: true}" required />
-          <label class="form-check-label" for="gridCheck">
-            I have read the Terms and Conditions.
-          </label>
-    </div>
-  
-    <!--button and contact us-->
-    <div class="d-grid gap-2 col-6 mx-auto">
-      <input value="Sign up" routerLink='/login' class="btn" type="button" />
-      <!-- <a type="submit" class="btn btn-lg active" aria-current="page" > Sign up </a> -->
-    </div>
-</form>
+  </form>
 
   <div class="d-flex justify-content-center icons">
     <fa-icon [icon]="faEnvelope"></fa-icon>

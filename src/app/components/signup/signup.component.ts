@@ -3,8 +3,10 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faSquareTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
+// import { Router, ActivatedRoute } from '@angular/router';
+// import Validation from './utils/validation';
 
 @Component({
   selector: 'app-signup',
@@ -16,40 +18,66 @@ export class SignupComponent implements OnInit {
   faFacebook = faFacebook;
   faSquareTwitter = faSquareTwitter;
   faCartShopping = faCartShopping;
-  form: FormGroup;
-  loading = false;
+  form: FormGroup = new FormGroup({
+    fullname: new FormControl(''),
+    username: new FormControl(''),
+    email: new FormControl(''),
+    country: new FormControl(''),
+    password: new FormControl(''),
+    confirmPassword: new FormControl(''),
+    acceptTerms: new FormControl(false),
+  });
   submitted = false;
-  authService: any;
 
-  constructor(
-      private formBuilder: FormBuilder,
-      private route: ActivatedRoute,
-      private router: Router,
-  ) { }
+  constructor(private formBuilder: FormBuilder, private authservice: AuthService) {}
 
-  ngOnInit() {
-      this.form = this.formBuilder.group({
-          firstName: ['', Validators.required],
-          lastName: ['', Validators.required],
-          username: ['', Validators.required],
-          password: ['', [Validators.required, Validators.minLength(6)]]
-      });
-  }
-
-  // convenience getter for easy access to form fields
-  get f() { return this.form.controls; }
-
-  onSubmit() {
-      this.submitted = true;
-
-      // stop here if form is invalid
-      if (this.form.invalid) {
-          return;
+  ngOnInit(): void {
+    this.form = this.formBuilder.group(
+      {
+        fullname: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        username: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(6),
+            Validators.maxLength(20)
+          ]
+        ], 
+        country: ['', Validators.required],
+        password: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(6),
+            Validators.maxLength(40)
+          ]
+        ],
+        confirmPassword: ['', Validators.required],
+        acceptTerms: [false, Validators.requiredTrue]
+      },
+      {
+        // validators: [Validation.match('password', 'confirmPassword')]
       }
+    );
+   }
 
-      this.authService.register(this.form.value);
-          
+  get f(): { [key: string]: AbstractControl } {
+    return this.form.controls;
   }
+
+  onSubmit(): void {
+    this.submitted = true;
+    if (this.form.invalid) {
+      return;
+    }
+    console.log(JSON.stringify(this.form.value, null, 2));
+  }
+
+  login(){
+    this.authservice.login()
+  };
 }
+ 
 
 
