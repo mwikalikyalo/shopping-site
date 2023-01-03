@@ -12,26 +12,24 @@ import { ActivatedRoute } from '@angular/router';
 
 export class DisplayComponent implements OnInit {  
   allProducts: any;
-  public product: Product | any;
+  // public product: Product | any;
   productId: any; 
-  // product: any = [];
+  public product: any = [];
   
   searchText: string= '';
   
   constructor(private itemsService: ItemsService, private cartService: CartService,  private route: ActivatedRoute,) { }
 
   ngOnInit() {
-    // this.onItemFetch();
-
     this.route.params.subscribe(params => this.productId = params['id'] )
 
     this.itemsService.fetchProduct().subscribe((products:any) => {
       this.allProducts= products;    
       this.product= this.allProducts.find(p => p.id == this.productId)
 
-      this.allProducts.forEach((a:any) => {
-          Object.assign(a,{quantity:1, total:a.price})
-      });
+      // this.allProducts.forEach((a:any) => {
+      //     Object.assign(a,{quantity:1, total:a.price})
+      // });
         console.log(this.allProducts)
     });
   }

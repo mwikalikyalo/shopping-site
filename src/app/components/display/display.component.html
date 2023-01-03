@@ -15,7 +15,7 @@
                 <p class="card-text"> {{ product.category }} </p>
                 <div class="btnn">
                   <a [routerLink]="['/enlarged', product.id]" class="btn"> Details </a>
-                  <a (click)="onAddToCart(product)" class="btn" id="add"> Add to Cart </a>
+                  <a (click)="onAddToCart(product); " class="btn" id="add"> Add to Cart </a>
                 </div>
               </div>
             </div>

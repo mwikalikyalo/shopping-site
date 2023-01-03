@@ -20,10 +20,10 @@
                 <th scope="row">{{ i + 1 }}</th>
                 <td>{{ prod.title }}</td>
                 <td><a class="btn sign btn-sm" (click)= "increase(prod.id, prod.quantity)" > + </a>
-                  {{ prod?.quantity }} <a class="btn sign btn-sm" (click)= "decrease(prod.id, prod.quantity)" > - </a> </td>
+                  {{ prod.quantity }} <a class="btn sign btn-sm" (click)= "decrease(prod.id, prod.quantity)" > - </a> </td>
                 <td>{{ prod.price | currency }}</td>
                 <td>{{ prod.price * prod.quantity | currency }} </td>
-                <td><fa-icon [icon]="faTrash" (click)="onRemoveItem(product)"></fa-icon> </td>
+                <td><fa-icon [icon]="faTrash" (click)="onRemoveItem(prod)"></fa-icon> </td>
             </tr>
           </tbody>   
         </table>
@@ -39,12 +39,12 @@
 </ng-container>
 
 <ng-container *ngIf="product.length ==0"> 
-  <div class="container">
-    <div class="card">
-      <h5 class="card-title">My Cart</h5>
+  <div class="container-fluid">
+    <div class="card border">
+      <h5 class="card-title text-start">My Cart</h5>
     </div>
-    <div class="center">
-      <img src="../../../assets/emptycart.jpg" alt="">
+    <div class="card-body center">
+      <img src="../../../assets/emptycart.jpg" class="img-fluid" alt="">
       <h5>Your cart is empty</h5>
       <h6>Add items to your cart now.</h6>
       <a class="btn active" aria-current="page" routerLink='/display' > Shop </a>

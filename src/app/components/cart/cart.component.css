@@ -4,6 +4,14 @@
   width: 170vh;
   padding: 25px;
   margin: 10px;
+  overflow-x: hidden;
+}
+
+@media screen and (min-width: 498px) {
+  .card {
+    overflow: hidden;
+  }
+
 }
 
 .card-title{

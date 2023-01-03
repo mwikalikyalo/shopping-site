@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../product';
-// import { Quantity } from '../quantity';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 
@@ -9,7 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class CartService {
 
-  public items: Product[]= [];
+  public items:any= [];
   public quantityList= new BehaviorSubject<any>([]);
 
   //loop through the items clicked by id
@@ -22,44 +21,32 @@ export class CartService {
     this.quantityList.next(product);
   }
 
-
   addToCart(product: any){
     this.items.push(product);
     this.quantityList.next(this.items);
-    this.getTotalPrice();
+    this.getTotalPrice(this.items);
     console.log(this.items)
   }
 
-  getTotalPrice(): number{
-    let totalPrice= 0;
-    this.items.map((a: any) => {
-      totalPrice += a.total;
+  getTotalPrice(productsAdded?: Product[]): number{
+    let totalPrice= 0; 
+    productsAdded.map((a: any) => {
+      totalPrice += a.price * a.quantity;
     });
     return totalPrice;
-  }
-
+  };
+  
   getItem(){
     return this.items;
   }
 
-  clearCart(){
-    this.items= [];
-    return this.items;
-  }
-
-  removeItem(id: any) {
-  //   const index = this.items.indexOf(product, 0);
-  //   if (index > -1) {
-  //       this.items.splice(index, 1);
-  //   }
-  // }
-    this.items.map((a:any, index:any)=>{
-      if(id === a.id){
-        this.items.splice(index,1);
-      }
-    })
+  removeItem(product: any) {
+    const index = this.items.indexOf(product, 0);
+    if (index > -1) {
+        this.items.splice(index, 1);
+    }
     this.quantityList.next(this.items);
-   }
+  }
 
   removeAllCart(){
     this.items = []

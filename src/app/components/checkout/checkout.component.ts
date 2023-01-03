@@ -15,11 +15,13 @@ export class CheckoutComponent implements OnInit {
   faCcVisa= faCcVisa;
   faCcMastercard= faCcMastercard;
   faCcPaypal= faCcPaypal;
+  
   public product: any = [];
   public totalPrice: number;
   public card:boolean = true;
   public mpesa:boolean = false;
   public shippingCost: number= 8;
+  
   form: FormGroup = new FormGroup({
     fullname: new FormControl(''),
     phone: new FormControl(''),

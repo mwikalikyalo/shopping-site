@@ -16,33 +16,32 @@ export class CartComponent implements OnInit {
   faTrash = faTrash;
   faPlus = faPlus;
   faMinus= faMinus;
+  
   public product: any = [];
   public totalPrice: number;
-  total:number = 0;
+  public total:number;
 
   // quant= this.cartService.getItem();
 
   constructor(private cartService: CartService, private httpClient: HttpClient) { }
-
   ngOnInit(): void {  
     this.cartService.getProduct()
     .subscribe(res=>{
       this.product = res;
-      this.product.forEach((a:any) => {
-        Object.assign(a,{quantity:1, total:a.price})
+      this.product.forEach((res:any) => {
+        // const total = a.quantity * a.price;
+        Object.assign(res,{quantity:1, total: res.price })
+          this.total= res.price * res.quantity;
+        // const itemTotalPrice = a.quantity * a.total;
+        //   this.totalPrice += itemTotalPrice;
+        console.log(res);
       });
-      this.totalPrice = this.cartService.getTotalPrice();
+      this.totalPrice = this.cartService.getTotalPrice(this.product);
     });  
   };
 
-  onClearCart(){
-    this.cartService.clearCart();
-    window.alert("Your item has been removed to your cart.");
-  };
-
-  onRemoveItem(id: any){
-    this.cartService.removeItem(id);
-    console.log("done")
+  onRemoveItem(product: any){
+    this.cartService.removeItem(product);
   }
 
   onRemoveAllCart(){
@@ -50,22 +49,24 @@ export class CartComponent implements OnInit {
   };
 
   // increase and decrease items
-  increase(id, quantity){
+  increase(id:any, quantity:any){
     for(let a=0; a<this.product.length; a++){
       if(this.product[a].id  === id){
         if(quantity != 15)
           this.product[a].quantity = parseInt(quantity) + 1;
       }
     }
+    this.totalPrice = this.cartService.getTotalPrice(this.product);
   }
 
-  decrease(id, quantity){
+  decrease(id:any, quantity:any){
     for(let a=0; a<this.product.length; a++){
       if(this.product[a].id  === id){
-        if(quantity != 0)
+        if(quantity != 1)
           this.product[a].quantity = parseInt(quantity) - 1;
       }
     }
+    this.totalPrice = this.cartService.getTotalPrice(this.product);
   }
   // increase(prod: any){
   //   if(prod.quantity != 15){
@@ -78,7 +79,5 @@ export class CartComponent implements OnInit {
   //     prod.quantity -= 1;
   //   }
   // }
-
- 
 
 }
