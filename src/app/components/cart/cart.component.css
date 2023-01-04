@@ -7,9 +7,11 @@
   overflow-x: hidden;
 }
 
-@media screen and (min-width: 498px) {
+@media (max-width: 600px){
   .card {
     overflow: hidden;
+    width: 80vh;
+    padding: 15px;
   }
 
 }

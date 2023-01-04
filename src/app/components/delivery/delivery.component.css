@@ -1,7 +1,13 @@
 .checkout{
-  background-color: #fefae0;
+  background: linear-gradient(to right, #fefae0, #fefae0);
   height: 90vh;
   font-family: 'Merriweather', serif;
+}
+
+@media (max-width: 600px) {
+  .checkout {
+    background: linear-gradient(to bottom, #fefae0, #fefae0);
+  }
 }
 
 .bg-text{

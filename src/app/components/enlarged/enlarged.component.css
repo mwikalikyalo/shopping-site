@@ -1,6 +1,12 @@
 .bg-color{
   padding: 5px;
-  background-color: #dda15e;
+  background: linear-gradient(to right, #dda15e, #dda15e) ;
+}
+
+@media (max-width: 600px) {
+  body {
+    background: linear-gradient(to bottom, #dda15e, #dda15e);
+  }
 }
 
 .container-fluid{

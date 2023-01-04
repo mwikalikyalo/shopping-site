@@ -66,6 +66,14 @@
   margin: 10px;
 }
 
+/* @media (max-width: 600px){
+  .summary {
+    width: 10rem;
+    margin: 5px;
+  }
+
+} */
+
 .payment{
   padding: 5px;
   margin: 10px;

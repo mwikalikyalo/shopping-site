@@ -45,7 +45,7 @@ export class EnlargedComponent implements OnInit {
   //add to cart
   onAddToCart(products: any){
     this.cartService.addToCart(products)
-    this.cartService.getTotalPrice()
+    this.cartService.getTotalPrice(this.product)
     console.log(this.allProducts)
   }
 }

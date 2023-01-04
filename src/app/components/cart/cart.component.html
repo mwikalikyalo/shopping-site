@@ -39,14 +39,16 @@
 </ng-container>
 
 <ng-container *ngIf="product.length ==0"> 
-  <div class="container-fluid">
-    <div class="card border">
+  <div class="container-fluid crd-border">
+    <div class="card border crd-border">
       <h5 class="card-title text-start">My Cart</h5>
     </div>
     <div class="card-body center">
-      <img src="../../../assets/emptycart.jpg" class="img-fluid" alt="">
-      <h5>Your cart is empty</h5>
-      <h6>Add items to your cart now.</h6>
+      <div class="img-fluid">
+        <img src="../../../assets/emptycart.jpg" class="img-fluid" alt="">
+      </div>
+      <h5 class="card-text">Your cart is empty</h5>
+      <h6 class="card-text">Add items to your cart now.</h6>
       <a class="btn active" aria-current="page" routerLink='/display' > Shop </a>
     </div>
   </div>

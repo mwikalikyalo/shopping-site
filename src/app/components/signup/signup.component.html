@@ -30,7 +30,7 @@
       </div>
 
       <div class="row g-3">
-        <div class="col-md-4 form-group">
+        <div class="col form-group">
           <label for="inputUsername4" class="form-label">Username</label>
           <input type="text" class="form-control" placeholder="username" aria-label="username" 
           formControlName="username" required [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"/>
@@ -45,7 +45,7 @@
             </div>    
         </div>
 
-        <div class="col-md-4 form-group">
+        <div class="col-md-6 form-group">
           <label for="inputUsername4" class="form-label">Country</label>
           <input type="text" class="form-control" placeholder="country" aria-label="country" 
            formControlName="country" required [ngClass]="{ 'is-invalid': submitted && f['country'].errors }" />
@@ -87,21 +87,21 @@
       </div>  
    
       <!--terms-->
-      <div class="col-12 d-flex justify-content-center form-group form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck" formControlName="acceptTerms" required 
+      <div class="col-12 d-flex justify-content-center form-group form-check text-center">
+          <input class="form-check-input text-center" type="checkbox" id="gridCheck" formControlName="acceptTerms" required 
           [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }" />
-            <label class="form-check-label" for="gridCheck">
+            <label class="form-check-label text-center" for="gridCheck">
               I have read the Terms and Conditions.
             </label>
-            <div class="col-md-8">
+            <div class="col-md-8 text-center">
               <div *ngIf="submitted && f['acceptTerms'].errors" class="invalid-feedback ">
                 Accept Terms is required </div>
             </div>
       </div>
 
       <!--button and contact us-->
-      <div class="d-grid gap-2 col-6 mx-auto form-group">
-        <input value="Sign up" class="btn" type="submit" (click)="login()" routerLink='/display' />
+      <div class="d-grid gap-2 col-6 mx-auto form-group btn">
+        <input value="Sign up" id="btn" type="submit" (click)="login()" routerLink='/display' />
       </div>
     </div>
   </form>

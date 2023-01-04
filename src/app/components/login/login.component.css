@@ -2,10 +2,16 @@
 *{
   font-family: 'Merriweather', serif;
   color: #283618;
-  padding: 10px;
+  padding: 8px;
   margin: 0px;
   overflow-x: hidden;
-  background-color: #FEFAE0;
+  background: linear-gradient(to right, #FEFAE0, #FEFAE0);
+}
+
+@media (max-width: 600px) {
+  /* *{
+    background: linear-gradient(to bottom, #FEFAE0, #FEFAE0);
+  } */
 }
 
 #shopperz{
@@ -15,17 +21,21 @@
 }
 
 .sign{
-  padding: 10px;  
+  padding: 10px;
 }
 
-.btn{
+#btn{
   color: #DDA15E;
-  background-color: #283618;
+  background: #283618;
+  border-radius: 10px;
+  outline: none;
 }
 
-.btn:hover{
+#btn:hover{
   color: #FEFAE0;
-  background-color: #DDA15E;
+  background: #DDA15E;
+  border-radius: 10px;
+  outline: none;
 }
 
 .icons{

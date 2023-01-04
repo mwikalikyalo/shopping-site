@@ -38,7 +38,7 @@ export class CheckoutComponent implements OnInit {
     .subscribe(res=>{
       this.product = res;
     });
-    this.totalPrice = this.cartService.getTotalPrice();
+    this.totalPrice = this.cartService.getTotalPrice(this.product);
 
     this.form = this.formBuilder.group(
       {
